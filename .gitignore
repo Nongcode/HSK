@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.superpowers/
+.cache/
+out/
+test-results/
+playwright-report/
+*.tsbuildinfo
+next-env.d.ts
