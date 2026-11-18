@@ -1,0 +1,79 @@
+[
+  {
+    "id": "adverbial",
+    "title": "Trạng ngữ đứng trước động từ",
+    "summary": "Trạng từ, cụm giới từ và trạng ngữ chỉ cách thức luôn đứng trước động từ, không đứng sau.",
+    "explanation": "Trong tiếng Trung, các thành phần bổ nghĩa cho hành động như 很, 都, 也, 已经, 常常 hay cụm giới từ (在…, 跟…, 对…) đứng ngay trước động từ chính. Tiếng Việt thường đặt chúng sau nên người học hay xếp ngược. Công thức: Chủ ngữ + Trạng ngữ + Động từ + Tân ngữ.",
+    "examples": [
+      { "zh": "我们都喜欢这个电影。", "pinyin": "Wǒmen dōu xǐhuan zhège diànyǐng.", "vi": "Chúng tôi đều thích bộ phim này." },
+      { "zh": "他常常在图书馆看书。", "pinyin": "Tā chángcháng zài túshūguǎn kàn shū.", "vi": "Anh ấy thường đọc sách ở thư viện." }
+    ],
+    "tag": "adverbial-before-verb"
+  },
+  {
+    "id": "ba",
+    "title": "Câu chữ 把",
+    "summary": "把 đưa tân ngữ lên trước động từ và động từ phải kèm thành phần phía sau (bổ ngữ, 了…).",
+    "explanation": "Công thức: Chủ ngữ + 把 + Tân ngữ + Động từ + Thành phần khác. Tân ngữ sau 把 thường là vật đã xác định, động từ không đứng trơ trọi mà phải có bổ ngữ kết quả, 了 hoặc bổ ngữ xu hướng. Từ phủ định và trạng từ đứng trước 把, không đứng trước động từ.",
+    "examples": [
+      { "zh": "请把门关上。", "pinyin": "Qǐng bǎ mén guānshang.", "vi": "Xin hãy đóng cửa lại." },
+      { "zh": "我没把作业带来。", "pinyin": "Wǒ méi bǎ zuòyè dài lái.", "vi": "Tôi không mang bài tập đến." }
+    ],
+    "tag": "ba-position"
+  },
+  {
+    "id": "bei",
+    "title": "Câu bị động chữ 被",
+    "summary": "被 đứng trước tác nhân hoặc trước động từ; chủ ngữ là đối tượng chịu tác động.",
+    "explanation": "Công thức: Chủ ngữ (đối tượng chịu tác động) + 被 + (Tác nhân) + Động từ + Thành phần khác. Động từ cũng cần có bổ ngữ hoặc 了. Từ phủ định và trạng từ đứng trước 被.",
+    "examples": [
+      { "zh": "我的手机被弟弟弄坏了。", "pinyin": "Wǒ de shǒujī bèi dìdi nònghuài le.", "vi": "Điện thoại của tôi bị em trai làm hỏng rồi." },
+      { "zh": "那本书被借走了。", "pinyin": "Nà běn shū bèi jièzǒu le.", "vi": "Cuốn sách đó bị mượn đi rồi." }
+    ],
+    "tag": "bei-position"
+  },
+  {
+    "id": "shi-de",
+    "title": "Cấu trúc 是…的",
+    "summary": "Dùng để nhấn mạnh thời gian, địa điểm, cách thức của một hành động đã xảy ra.",
+    "explanation": "Công thức: Chủ ngữ + 是 + Thành phần nhấn mạnh + Động từ + 的. Phần được nhấn mạnh nằm ngay sau 是 và trước động từ. Với tân ngữ là danh từ, 的 có thể đứng trước hoặc sau tân ngữ.",
+    "examples": [
+      { "zh": "我是昨天到北京的。", "pinyin": "Wǒ shì zuótiān dào Běijīng de.", "vi": "Tôi đến Bắc Kinh hôm qua." },
+      { "zh": "他是坐飞机来的。", "pinyin": "Tā shì zuò fēijī lái de.", "vi": "Anh ấy đến bằng máy bay." }
+    ],
+    "tag": "shi-de"
+  },
+  {
+    "id": "result",
+    "title": "Bổ ngữ kết quả",
+    "summary": "Kết quả của hành động đứng ngay sau động từ, trước 了 và tân ngữ.",
+    "explanation": "Công thức: Động từ + Bổ ngữ kết quả (完, 好, 到, 见, 懂…) + (了) + Tân ngữ. Không chèn trạng từ giữa động từ và bổ ngữ. Phủ định bằng 没(有) đặt trước động từ, và không dùng 了.",
+    "examples": [
+      { "zh": "我已经做完作业了。", "pinyin": "Wǒ yǐjīng zuòwán zuòyè le.", "vi": "Tôi đã làm xong bài tập rồi." },
+      { "zh": "我没听懂他的话。", "pinyin": "Wǒ méi tīngdǒng tā de huà.", "vi": "Tôi không nghe hiểu lời anh ấy." }
+    ],
+    "tag": "result-complement"
+  },
+  {
+    "id": "attributive",
+    "title": "Trật tự định ngữ",
+    "summary": "Định ngữ đứng trước danh từ nó bổ nghĩa, thường nối bằng 的.",
+    "explanation": "Công thức: Định ngữ + 的 + Danh từ trung tâm. Khác tiếng Việt, mọi thành phần mô tả (tính từ, cụm động từ, mệnh đề) đều đứng trước danh từ. Khi có nhiều định ngữ, thứ tự thường là sở hữu, số lượng, mô tả, rồi danh từ.",
+    "examples": [
+      { "zh": "这是我朋友买的新手机。", "pinyin": "Zhè shì wǒ péngyou mǎi de xīn shǒujī.", "vi": "Đây là chiếc điện thoại mới bạn tôi mua." },
+      { "zh": "他是一个很有名的医生。", "pinyin": "Tā shì yí ge hěn yǒumíng de yīshēng.", "vi": "Anh ấy là một bác sĩ rất nổi tiếng." }
+    ],
+    "tag": "attributive-order"
+  },
+  {
+    "id": "time-place",
+    "title": "Trật tự thời gian, địa điểm",
+    "summary": "Thời gian đứng trước địa điểm, và cả hai đứng trước động từ.",
+    "explanation": "Công thức: Chủ ngữ + Thời gian + Địa điểm (在…) + Động từ + Tân ngữ. Từ chỉ thời điểm có thể đứng đầu câu hoặc sau chủ ngữ, nhưng luôn đứng trước động từ. Thời lượng (一个小时) lại đứng sau động từ.",
+    "examples": [
+      { "zh": "我明天在家休息。", "pinyin": "Wǒ míngtiān zài jiā xiūxi.", "vi": "Ngày mai tôi nghỉ ở nhà." },
+      { "zh": "她每天早上在公园跑步。", "pinyin": "Tā měitiān zǎoshang zài gōngyuán pǎobù.", "vi": "Mỗi sáng cô ấy chạy bộ ở công viên." }
+    ],
+    "tag": "time-place-order"
+  }
+]

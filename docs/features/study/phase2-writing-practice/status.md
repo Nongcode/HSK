@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-002 — Luyện viết: sắp xếp câu |
 | Bước Superpowers | writing-plans xong → chờ người dùng duyệt plan → executing-plans |
-| Task đang làm | T-002.3 |
-| **Bước tiếp theo** | T-002.3 bài quy tắc + validate |
+| Task đang làm | T-002.4 |
+| **Bước tiếp theo** | T-002.4 câu mẫu đợt 1 |
 | Branch | feat/phase1-foundation (làm tiếp trên nhánh này) |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Chưa có code |
@@ -29,7 +29,7 @@
 |---|---|---|---|---|
 | T-002.1 | Lưu trữ: attempts, cờ nghi sai, Dexie v2 | ✅ DONE | vitest 109/109 + tsc; Bỏ qua Playwright: lớp dữ liệu | |
 | T-002.2 | Schema, bộ chấm, xáo trộn, thống kê | ✅ DONE | vitest writing 13/13 + tsc; Bỏ qua Playwright: hàm thuần | |
-| T-002.3 | Bài quy tắc + validate nội dung viết | ⬜ TODO | | |
+| T-002.3 | Bài quy tắc + validate nội dung viết | ✅ DONE | vitest scripts 5/5 validate-writing; npm run validate OK (7 bài quy tắc); Bỏ qua Playwright: dữ liệu/script | |
 | T-002.4 | Câu mẫu đợt 1 (~50) | ⬜ TODO | | |
 | T-002.5 | Câu mẫu đợt 2 (~100) | ⬜ TODO | | |
 | T-002.6 | Hàng đợi luyện viết + ghi kết quả SRS | ⬜ TODO | | |
