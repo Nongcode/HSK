@@ -10,6 +10,8 @@ import {
   type Storage,
 } from "./types";
 
+const MAX_IDB_COUNT = 0xffffffff;
+
 type EditRow = { id: string; patch: Partial<Word> };
 type SettingsRow = { key: "main"; value: Settings };
 type ReviewRow = ReviewLog & { seq?: number };
@@ -50,7 +52,12 @@ export class DexieStorage implements Storage {
     await this.db.cards.put(s);
   }
   listDue(now: number, limit: number) {
-    return this.db.cards.where("due").belowOrEqual(now).limit(limit).toArray();
+    // IndexedDB rejects counts above 2^32 - 1, so callers may pass "no limit" as a huge number.
+    return this.db.cards
+      .where("due")
+      .belowOrEqual(now)
+      .limit(Math.min(limit, MAX_IDB_COUNT))
+      .toArray();
   }
   countDue(now: number) {
     return this.db.cards.where("due").belowOrEqual(now).count();

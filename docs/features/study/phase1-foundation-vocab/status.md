@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-001 — Nền tảng, từ vựng, flashcard SRS |
 | Bước Superpowers | executing-plans (inline) |
-| Task đang làm | T-001.9 |
-| **Bước tiếp theo** | Task 9: queue.ts + Flashcard + /review (FocusLayout) |
+| Task đang làm | T-001.10 |
+| **Bước tiếp theo** | Task 10: stats.ts + trang chủ |
 | Branch | feat/phase1-foundation |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Không |
@@ -34,7 +34,7 @@
 | T-001.6 | Nạp từ vựng + AppContext | ✅ DONE | vitest 6/6 + tsc; Bỏ qua Playwright: chưa có UI | |
 | T-001.7 | AppShell + FocusLayout | ✅ DONE | vitest 5/5 + Playwright e2e/shell.spec.ts (desktop+mobile) 2/2 | Route group (main) |
 | T-001.8 | Thư viện từ vựng | ✅ DONE | vitest 11/11 + Playwright TC-01 4/4 (desktop+mobile), ảnh chụp đã soát bố cục | |
-| T-001.9 | Phiên flashcard | ⬜ TODO | | |
+| T-001.9 | Phiên flashcard | ✅ DONE | vitest 68/68 + Playwright TC-02/TC-05 4/4 | |
 | T-001.10 | Trang chủ | ⬜ TODO | | |
 | T-001.11 | Cài đặt + sao lưu | ⬜ TODO | | |
 | T-001.12 | About, PWA, e2e | ⬜ TODO | | |
@@ -42,6 +42,7 @@
 ## Kết quả test gần nhất
 | Thời gian | Lệnh / kịch bản | Kết quả | Ghi chú |
 |---|---|---|---|
+| 2026-11-18 11:55 | npx playwright test e2e/review.spec.ts (TC-02, TC-05) | ✅ pass 4/4 | lần đầu fail do lỗi IndexedDB limit, đã sửa + test hồi quy; ảnh T-001.9-* |
 | 2026-11-18 11:50 | npx playwright test e2e/shell.spec.ts, e2e/vocab.spec.ts (TC-01) | ✅ pass 6/6 | desktop + mobile; ảnh ở screenshots/ |
 
 ## Nhật ký phiên

@@ -38,6 +38,12 @@ describe.each(impls)("%s", (_name, make) => {
     expect(await s.countDue(500)).toBe(3);
   });
 
+  it("listDue accepts a very large limit (IndexedDB caps counts at 2^32 - 1)", async () => {
+    const s = make();
+    await s.putCard(card("a", 100));
+    expect(await s.listDue(500, Number.MAX_SAFE_INTEGER)).toHaveLength(1);
+  });
+
   it("returns default settings on first read and merges patches", async () => {
     const s = make();
     expect(await s.getSettings()).toEqual(DEFAULT_SETTINGS);
