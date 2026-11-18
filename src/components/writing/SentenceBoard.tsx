@@ -1,6 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {
+  closestCenter,
+  DndContext,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  type Announcements,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  horizontalListSortingStrategy,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { useEffect, useId, useState } from "react";
+import { moveChunk } from "@/lib/writing/move";
 
 interface Props {
   chunks: string[];
@@ -15,6 +33,43 @@ interface Props {
 const chipClass =
   "min-h-11 rounded-lg border border-line bg-surface px-4 py-2 font-hanzi text-xl transition-colors enabled:hover:border-accent disabled:opacity-60";
 
+function AnswerChip({
+  id,
+  text,
+  disabled,
+  onClick,
+}: {
+  id: number;
+  text: string;
+  disabled: boolean;
+  onClick: () => void;
+}) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id,
+    disabled,
+  });
+  return (
+    <li
+      ref={setNodeRef}
+      style={{ transform: CSS.Transform.toString(transform), transition }}
+      className={isDragging ? "relative z-10 opacity-80" : undefined}
+    >
+      <button
+        type="button"
+        lang="zh-Hans"
+        disabled={disabled}
+        onClick={onClick}
+        className={`${chipClass} border-accent`}
+        {...attributes}
+        {...listeners}
+        aria-roledescription="cụm từ có thể kéo"
+      >
+        {text}
+      </button>
+    </li>
+  );
+}
+
 export function SentenceBoard({ chunks, initialOrder, disabled, onChange, onSubmit }: Props) {
   const [placed, setPlaced] = useState<number[]>([]);
   const tray = initialOrder.filter((i) => !placed.includes(i));
@@ -24,6 +79,30 @@ export function SentenceBoard({ chunks, initialOrder, disabled, onChange, onSubm
     setPlaced(next);
     onChange(next);
   };
+  const dndId = useId();
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+      keyboardCodes: { start: ["Space"], cancel: [], end: ["Space"] },
+    }),
+  );
+  const label = (id: string | number) => chunks[Number(id)];
+  const announcements: Announcements = {
+    onDragStart: ({ active }) => `Đã nhấc cụm "${label(active.id)}". Dùng phím mũi tên để di chuyển, Space để thả.`,
+    onDragOver: ({ active, over }) =>
+      over ? `Cụm "${label(active.id)}" đang ở vị trí ${placed.indexOf(Number(over.id)) + 1}.` : undefined,
+    onDragEnd: ({ active, over }) =>
+      over
+        ? `Đã thả cụm "${label(active.id)}" ở vị trí ${placed.indexOf(Number(over.id)) + 1}.`
+        : `Đã thả cụm "${label(active.id)}".`,
+    onDragCancel: ({ active }) => `Đã hủy di chuyển cụm "${label(active.id)}".`,
+  };
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
+    if (!over || active.id === over.id) return;
+    update(moveChunk(placed, placed.indexOf(Number(active.id)), placed.indexOf(Number(over.id))));
+  };
+
   const place = (i: number) => !disabled && update([...placed, i]);
   const unplace = (i: number) => !disabled && update(placed.filter((p) => p !== i));
 
@@ -46,30 +125,30 @@ export function SentenceBoard({ chunks, initialOrder, disabled, onChange, onSubm
 
   return (
     <div className="space-y-6">
-      <ol
-        role="list"
-        aria-label="Câu của bạn"
-        className="flex min-h-20 flex-wrap items-center gap-2 rounded-xl border-2 border-dashed border-line bg-surface/60 p-3"
+      <DndContext
+        id={dndId}
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        accessibility={{ announcements }}
+        onDragEnd={onDragEnd}
       >
-        {placed.length === 0 && (
-          <li className="px-1 text-sm text-muted" aria-hidden>
-            Chạm các cụm bên dưới để ghép thành câu
-          </li>
-        )}
-        {placed.map((i) => (
-          <li key={i}>
-            <button
-              type="button"
-              lang="zh-Hans"
-              disabled={disabled}
-              onClick={() => unplace(i)}
-              className={`${chipClass} border-accent`}
-            >
-              {chunks[i]}
-            </button>
-          </li>
-        ))}
-      </ol>
+        <SortableContext items={placed} strategy={horizontalListSortingStrategy}>
+          <ol
+            role="list"
+            aria-label="Câu của bạn"
+            className="flex min-h-20 flex-wrap items-center gap-2 rounded-xl border-2 border-dashed border-line bg-surface/60 p-3"
+          >
+            {placed.length === 0 && (
+              <li className="px-1 text-sm text-muted" aria-hidden>
+                Chạm các cụm bên dưới để ghép thành câu
+              </li>
+            )}
+            {placed.map((i) => (
+              <AnswerChip key={i} id={i} text={chunks[i]} disabled={disabled} onClick={() => unplace(i)} />
+            ))}
+          </ol>
+        </SortableContext>
+      </DndContext>
       <div role="group" aria-label="Các cụm từ" className="flex flex-wrap gap-2">
         {tray.map((i, k) => (
           <button
