@@ -8,12 +8,12 @@
 |---|---|
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-002 — Luyện viết: sắp xếp câu |
-| Bước Superpowers | writing-plans xong → chờ người dùng duyệt plan → executing-plans |
-| Task đang làm | T-002.11 |
-| **Bước tiếp theo** | T-002.11 e2e + xác minh cuối |
+| Bước Superpowers | executing-plans xong 11/11 → review cuối nhánh |
+| Task đang làm | T-002.12 |
+| **Bước tiếp theo** | Review cuối nhánh |
 | Branch | feat/phase1-foundation (làm tiếp trên nhánh này) |
 | Cập nhật lần cuối | 2026-11-18 |
-| Ghi chú dở dang | Chưa có code |
+| Ghi chú dở dang | Còn: review cuối nhánh (Opus), fix pass, finishing-a-development-branch |
 
 ## File chính
 | File | Vai trò |
@@ -37,7 +37,7 @@
 | T-002.8 | Kéo thả @dnd-kit | ✅ DONE | move.test 3 + SentenceBoard.test 8 pass (chạm vẫn hoạt động); Playwright kéo thả kiểm ở T-002.9/11 | |
 | T-002.9 | Phiên luyện + phản hồi + ôn câu sai | ✅ DONE | WritingSession.test 8 ca pass; tsc/lint ok; Playwright e2e gộp ở T-002.11 (trang /writing/practice đã có) | |
 | T-002.10 | Trang Luyện viết, quy tắc, lỗi hay mắc, điều hướng | ✅ DONE | vitest 166/166, tsc/lint ok; Playwright shell+home pass (desktop+mobile); e2e luồng viết ở T-002.11 | |
-| T-002.11 | E2E, ảnh chụp, kiểm tra cuối | ⬜ TODO | | |
+| T-002.11 | E2E, ảnh chụp, kiểm tra cuối | ✅ DONE | writing.spec 7 kịch bản × 2 + full playwright 36 pass; build OK | |
 
 ## Kết quả test gần nhất
 | Thời gian | Lệnh / kịch bản | Kết quả | Ghi chú |
@@ -45,3 +45,11 @@
 
 ## Nhật ký phiên
 - 2026-11-18 — Chốt phạm vi (bộ máy + ~100 câu mẫu), hướng A (chạm/bàn phím + dnd-kit), viết design.md.
+
+## Kết quả test gần nhất (T-002.11, 2026-11-18)
+- `npm run validate`: 3317 từ, 100 câu viết, 7 quy tắc — OK
+- `npx vitest run`: 29 file, 166/166 pass
+- `npx tsc --noEmit` OK; `npm run lint`: 0 lỗi (3 cảnh báo biến `_` đã có từ trước)
+- `npm run build`: OK (có /writing/*, rules SSG)
+- `npx playwright test`: 36 pass, 1 skip (kéo thả chỉ desktop). 1 lần `vocab.spec` fail khi chạy song song (flaky đã biết; chạy riêng 4/4 pass). `writing.spec` TC-10 từng chậm do biên dịch dev lần đầu → nới timeout 20s.
+- Ảnh: `screenshots/T-002.11-*` (sáng/tối, desktop/mobile).
