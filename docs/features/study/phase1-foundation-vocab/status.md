@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-001 — Nền tảng, từ vựng, flashcard SRS |
 | Bước Superpowers | executing-plans (inline) |
-| Task đang làm | T-001.1 |
-| **Bước tiếp theo** | Khởi tạo Next.js trong D:\HSK (Task 1 của plan) |
+| Task đang làm | T-001.2 |
+| **Bước tiếp theo** | Task 2: src/lib/content/schema.ts (WordSchema, parseVocab) |
 | Branch | feat/phase1-foundation |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Không |

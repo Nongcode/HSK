@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f7f3ec;
+  --surface: #fffdf8;
+  --text: #2b2a28;
+  --muted: #6b665e;
+  --accent: #2f6f62;
+  --accent-text: #ffffff;
+  --ok: #3b7d4f;
+  --warn: #9a6a1f;
+  --border: #e3dccf;
+  --font-scale: 1;
+}
+
+.dark {
+  --bg: #1b1c1a;
+  --surface: #242623;
+  --text: #ece8df;
+  --muted: #a9a398;
+  --accent: #7cc3b0;
+  --accent-text: #11201c;
+  --ok: #8ccf9f;
+  --warn: #e0b46a;
+  --border: #373a35;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-line: var(--border);
+  --font-sans: var(--font-noto-sans-sc), system-ui, sans-serif;
+  --font-hanzi: var(--font-noto-serif-sc), "Songti SC", serif;
+}
+
+html {
+  font-size: calc(16px * var(--font-scale));
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
