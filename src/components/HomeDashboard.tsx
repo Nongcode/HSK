@@ -4,11 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useApp } from "@/lib/app-context";
 import { buildQueue, countNewToday } from "@/lib/srs/queue";
+import { needsBackupReminder } from "@/lib/backup";
 import { streakDays } from "@/lib/stats";
 
 export function HomeDashboard() {
   const { storage, words, settings } = useApp();
-  const [stats, setStats] = useState<{ ready: number; streak: number } | null>(null);
+  const [stats, setStats] = useState<{ ready: number; streak: number; remind: boolean } | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -21,7 +22,11 @@ export function HomeDashboard() {
         sessionLimit: settings.sessionLimit,
         newToday: countNewToday(reviews, now),
       });
-      if (!cancelled) setStats({ ready: queue.length, streak: streakDays(reviews, now) });
+      if (!cancelled) setStats({
+          ready: queue.length,
+          streak: streakDays(reviews, now),
+          remind: needsBackupReminder(settings, now, reviews.length > 0),
+        });
     })();
     return () => {
       cancelled = true;
@@ -61,6 +66,11 @@ export function HomeDashboard() {
           <p className="text-sm text-muted">Bạn đã học {stats.streak} ngày liên tiếp.</p>
         )}
       </section>
+      {stats.remind && (
+        <p className="rounded-xl border border-line bg-surface p-4 text-sm text-muted">
+          Đã lâu bạn chưa sao lưu tiến độ. <Link href="/settings" className="underline">Cài đặt</Link> → tải bản sao lưu để không mất dữ liệu.
+        </p>
+      )}
       <nav aria-label="Lối tắt" className="flex flex-wrap gap-3">
         <Link
           href="/vocab"

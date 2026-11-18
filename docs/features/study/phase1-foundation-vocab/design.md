@@ -15,3 +15,4 @@ Thiết kế đã chốt nằm ở spec (mục 3, 4, 9). Mục này ghi vị tr�
 | 8 | `src/components/vocab/{VocabList,WordCard,WordDetail,HanziText}.tsx`, `src/lib/vocab/{search,pos}.ts`, `src/lib/speech.ts`, `src/app/(main)/vocab/**` |
 | 9 | `src/lib/srs/queue.ts` (`buildQueue`, `countNewToday`), `src/components/review/*`, `src/app/review/page.tsx` (ngoài route group → không có nav); sửa `dexie-storage.ts` listDue clamp |
 | 10 | HomeDashboard.tsx, stats.ts (streakDays), (main)/page.tsx |
+| 11 | backup.ts, SettingsForm.tsx, (main)/settings/page.tsx, nhắc sao lưu ở HomeDashboard (needsBackupReminder có thêm tham số hasProgress) |
