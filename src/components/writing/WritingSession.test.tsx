@@ -139,4 +139,15 @@ describe("WritingSession", () => {
     expect(put).toHaveBeenCalledTimes(2);
     expect(screen.queryByRole("alert")).toBeNull();
   });
+
+  it("Enter on the focused rule link does not skip to the next sentence", async () => {
+    const user = setup([s1]);
+    await screen.findByText("nghĩa-s1");
+    await place(user, ["电影", "喜欢", "我"]);
+    await user.click(screen.getByRole("button", { name: /Kiểm tra/ }));
+    screen.getByRole("link", { name: "Xem bài quy tắc" }).focus();
+    await user.keyboard("{Enter}");
+    expect(screen.queryByText("Hoàn thành phiên luyện")).toBeNull();
+    expect(screen.getByText(/Chưa đúng/)).toBeTruthy();
+  });
 });

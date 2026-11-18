@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FocusLayout } from "@/components/FocusLayout";
 import { useApp } from "@/lib/app-context";
 import type { ErrorTag } from "@/lib/storage/types";
+import { isFocusedControl } from "@/lib/writing/keys";
 import { gradeOrder, type GradeResult } from "@/lib/writing/grade";
 import { TAG_LABEL } from "@/lib/writing/labels";
 import type { Rule, Sentence } from "@/lib/writing/schema";
@@ -106,6 +107,7 @@ export function WritingSession({
     if (!result) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Enter" || e.repeat || e.ctrlKey || e.metaKey || e.altKey) return;
+      if (isFocusedControl(e.target)) return; // focused links/buttons handle Enter themselves
       e.preventDefault();
       next();
     };

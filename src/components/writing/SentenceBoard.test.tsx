@@ -83,4 +83,13 @@ describe("SentenceBoard", () => {
     await user.click(within(answer()).getByRole("button", { name: "好" }));
     expect(within(tray()).getAllByRole("button", { name: /好/ })).toHaveLength(2);
   });
+
+  it("leaves Enter alone when another control has focus", async () => {
+    const { user, onSubmit } = setup();
+    render(<button type="button">Thoát</button>);
+    await user.keyboard("1111");
+    screen.getByRole("button", { name: "Thoát" }).focus();
+    await user.keyboard("{Enter}");
+    expect(onSubmit).not.toHaveBeenCalled();
+  });
 });

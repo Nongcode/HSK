@@ -18,6 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useEffect, useId, useState } from "react";
+import { isFocusedControl } from "@/lib/writing/keys";
 import { moveChunk } from "@/lib/writing/move";
 
 interface Props {
@@ -114,7 +115,7 @@ export function SentenceBoard({ chunks, initialOrder, disabled, onChange, onSubm
         if (i !== undefined) update([...placed, i]);
       } else if (e.key === "Backspace") {
         if (placed.length > 0) update(placed.slice(0, -1));
-      } else if (e.key === "Enter" && complete) {
+      } else if (e.key === "Enter" && complete && !isFocusedControl(e.target)) {
         e.preventDefault(); // keeps a focused button from also firing its click
         onSubmit();
       }
