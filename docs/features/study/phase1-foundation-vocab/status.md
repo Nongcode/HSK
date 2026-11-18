@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-001 — Nền tảng, từ vựng, flashcard SRS |
 | Bước Superpowers | executing-plans (inline) |
-| Task đang làm | T-001.12 |
-| **Bước tiếp theo** | Task 12: giấy phép, PWA, e2e, kiểm tra cuối |
+| Task đang làm | T-001.13 |
+| **Bước tiếp theo** | Review toàn nhánh rồi hoàn tất |
 | Branch | feat/phase1-foundation |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Không |
@@ -37,7 +37,7 @@
 | T-001.9 | Phiên flashcard | ✅ DONE | vitest 68/68 + Playwright TC-02/TC-05 4/4 | |
 | T-001.10 | Trang chủ | ✅ DONE | vitest 76/76; Playwright home 2/2 + shell 2/2, ảnh T-001.10 | |
 | T-001.11 | Cài đặt + sao lưu | ✅ DONE | vitest 82/82; Playwright settings 2/2, ảnh T-001.11 | |
-| T-001.12 | About, PWA, e2e | ⬜ TODO | | |
+| T-001.12 | About, PWA, e2e | ✅ DONE | validate OK; vitest 82/82; Playwright 19/20 (vocab flake khi chạy song song, đạt khi chạy lại 4/4); build OK; ảnh T-001.12 sáng/tối desktop/mobile | |
 
 ## Kết quả test gần nhất
 | Thời gian | Lệnh / kịch bản | Kết quả | Ghi chú |

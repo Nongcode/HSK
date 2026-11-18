@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useApp } from "@/lib/app-context";
 import { downloadBackup, importBackupText } from "@/lib/backup";
@@ -136,6 +137,12 @@ export function SettingsForm() {
           </p>
         )}
       </section>
+
+      <p className="text-sm text-muted">
+        <Link href="/about" className="underline">
+          Giấy phép và nguồn dữ liệu
+        </Link>
+      </p>
     </div>
   );
 }
