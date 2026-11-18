@@ -24,6 +24,12 @@ const SOURCES = [
     use: "Nghĩa tiếng Anh.",
   },
   {
+    name: "Tatoeba",
+    url: "https://tatoeba.org",
+    license: "CC BY 2.0 FR",
+    use: "Một phần câu trong phần luyện viết (mã nguồn câu ghi dạng tatoeba:<số>); đã lọc theo HSK1–4, chia cụm và viết lại bản dịch.",
+  },
+  {
     name: "Hanzi Writer",
     url: "https://hanziwriter.org",
     license: "MIT; dữ liệu nét chữ từ Make Me a Hanzi (Arphic Public License)",
