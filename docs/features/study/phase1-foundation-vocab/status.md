@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-001 — Nền tảng, từ vựng, flashcard SRS |
 | Bước Superpowers | executing-plans (inline) |
-| Task đang làm | T-001.7 |
-| **Bước tiếp theo** | Task 7: AppShell, FocusLayout, EphemeralBanner, ThemeToggle + test |
+| Task đang làm | T-001.8 |
+| **Bước tiếp theo** | Task 8: thư viện từ vựng src/app/(main)/vocab |
 | Branch | feat/phase1-foundation |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Không |
@@ -32,7 +32,7 @@
 | T-001.4 | Storage + Dexie | ✅ DONE | vitest storage 11/11 (Memory+Dexie); Bỏ qua Playwright: lớp dữ liệu | |
 | T-001.5 | SM-2 | ✅ DONE | vitest sm2 6/6; Bỏ qua Playwright: hàm thuần | |
 | T-001.6 | Nạp từ vựng + AppContext | ✅ DONE | vitest 6/6 + tsc; Bỏ qua Playwright: chưa có UI | |
-| T-001.7 | AppShell + FocusLayout | ⬜ TODO | | |
+| T-001.7 | AppShell + FocusLayout | ✅ DONE | vitest 5/5 + Playwright e2e/shell.spec.ts (desktop+mobile) 2/2 | Route group (main) |
 | T-001.8 | Thư viện từ vựng | ⬜ TODO | | |
 | T-001.9 | Phiên flashcard | ⬜ TODO | | |
 | T-001.10 | Trang chủ | ⬜ TODO | | |

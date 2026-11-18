@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import { AppProvider } from "@/lib/app-context";
 import "./globals.css";
 
 const notoSans = Noto_Sans_SC({
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi" className={`${notoSans.variable} ${notoSerif.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col"><AppProvider>{children}</AppProvider></body>
     </html>
   );
 }
