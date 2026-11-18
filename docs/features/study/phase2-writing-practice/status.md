@@ -59,3 +59,14 @@
   1. Enter toàn cục chiếm Enter của liên kết/nút đang focus → thêm `isFocusedControl` (2 test mới).
   2. 11 câu thiếu thứ tự đúng tự nhiên (đảo tân ngữ/định ngữ) → thêm vào `accepted` (11 test mới); sửa pinyin w015.
 - Minor chưa xử lý: shuffle fallback không kiểm tra; bàn cờ chưa khóa khi đang lưu; thử lại sau lỗi lưu có thể đếm đôi attempt; phím số/Backspace hoạt động khi đang kéo bằng phím; mất focus sau khi chạm; `started` ref khi đổi query; WritingHome/MistakesView không có nhánh lỗi; validator kiểm tra chữ chứ không phải từ; nhãn `result-complement` gộp nhiều loại; nhắc sao lưu không tính luyện viết; chưa có test kéo bằng phím.
+
+## CR-003 — Mở rộng và nâng chất lượng kho câu · 🟡 chờ duyệt kế hoạch · 2026-11-18
+
+| ID | Task | Trạng thái | Test | Ghi chú |
+|---|---|---|---|---|
+| T-003.1 | Khảo sát dạng đề HSK4 công khai | ⬜ TODO | | chỉ đọc |
+| T-003.2 | Script nhập Tatoeba | ⬜ TODO | | |
+| T-003.3 | Rà soát bằng agent (2 lượt) | ⬜ TODO | | |
+| T-003.4 | Nhập câu vào sentences.json + trường source | ⬜ TODO | | |
+| T-003.5 | Trang Giấy phép: thêm Tatoeba | ⬜ TODO | | cần Playwright |
+| T-003.6 | Xác minh cuối + tài liệu | ⬜ TODO | | |

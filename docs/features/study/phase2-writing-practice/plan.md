@@ -213,3 +213,29 @@ Yêu cầu như Task 4, `id` tiếp `w051`…; bổ sung các mẫu khó hơn (k
 - [ ] **Step 3: Sửa lỗi phát hiện** (bố cục, vùng bấm, tương phản, tràn ngang) qua ảnh chụp; mỗi lỗi có test hồi quy ở tầng đơn vị nếu là logic.
 - [ ] **Step 4: Run** `npm run validate && npx vitest run && npx playwright test && npm run build && npm run lint` — Expected: tất cả PASS (test flaky đã biết ghi trung thực nếu xuất hiện).
 - [ ] **Step 5: Cập nhật tài liệu** `status.md` (kết quả test), `design.md` (nhật ký task), `index.html` (prototype + tiến độ), `docs/features/README.md`; commit `feat: add writing practice e2e coverage`.
+
+---
+
+## CR-003 — Mở rộng và nâng chất lượng kho câu viết (2026-11-18)
+
+**Mục tiêu:** tăng số câu và độ tự nhiên của kho câu `完成句子` mà không vi phạm bản quyền; có quy trình rà soát tự động trước khi người thật duyệt.
+
+**Phạm vi:** chỉ dữ liệu + script + tài liệu nguồn. Không đổi giao diện luyện viết (trừ thêm dòng nguồn ở trang Giấy phép).
+
+**Nguyên tắc bản quyền:** không chép nội dung đề thi/sách HSK. Đề mẫu công khai chỉ dùng để học *dạng* câu (số cụm, cấu trúc). Câu mới lấy từ [Tatoeba](https://tatoeba.org/en/downloads) (CC BY 2.0 FR, bắt buộc ghi nguồn) hoặc tự viết. Mọi câu mới `reviewed: false`.
+
+**Tasks**
+- **T-003.1 — Khảo sát dạng đề HSK4 công khai** (chỉ đọc): ghi vào `design.md` số cụm, cấu trúc hay gặp, phân bố quy tắc; quyết định số câu mục tiêu mỗi quy tắc. Không thêm file code. Bỏ qua Playwright.
+- **T-003.2 — Script nhập Tatoeba** `scripts/import-tatoeba.ts` (+ test, TDD): đọc `sentences`/`links` đã tải về thư mục tạm ngoài repo, lấy cặp `cmn`↔`vie`, lọc chữ trong HSK1–4 (dùng validator hiện có), độ dài 6–16 chữ, loại trùng với kho; xuất danh sách ứng viên (JSON, kèm id Tatoeba + tác giả để ghi nguồn). Chia cụm/gắn quy tắc: heuristic theo từ khoá (把/被/是…的/的/thời gian–địa điểm) + gắn cờ chưa chắc.
+- **T-003.3 — Rà soát bằng agent** (Opus, chỉ đọc): từng ứng viên + 100 câu hiện có, kiểm tra chia cụm, `accepted` đủ chưa, `mistakes` có thật sự sai, pinyin, lời dịch Việt; trả danh sách sửa/loại. Chạy hai lượt độc lập, chỉ giữ câu cả hai đồng ý.
+- **T-003.4 — Nhập câu đã lọc vào `sentences.json`** (TDD qua `content.test.ts`): mục tiêu ≈ 200–250 câu, ≥ 25 câu/quy tắc, thêm trường nguồn (`source`: `"tatoeba:<id>"` hoặc `"original"`) vào schema (tùy chọn, tương thích ngược) và validator.
+- **T-003.5 — Trang Giấy phép**: thêm Tatoeba (CC BY 2.0 FR, liên kết, mô tả dùng) vào `src/app/(main)/about/page.tsx`; cập nhật test/e2e `about.spec.ts` nếu cần. **Cần Playwright.**
+- **T-003.6 — Xác minh cuối**: `npm run validate`, `vitest`, `tsc`, `lint`, `build`, `playwright`; cập nhật `status.md`, `design.md`, `index.html`, README.
+
+**Tiêu chí nghiệm thu:** validate pass; mọi câu mới có nguồn; không câu nào ngoài HSK1–4; ≥ 25 câu/quy tắc; trang Giấy phép có Tatoeba; reviewed vẫn `false` cho đến khi người thật duyệt.
+
+**Kịch bản test:** TC-15 `/about` hiển thị Tatoeba + giấy phép + liên kết; TC-16 luyện viết vẫn chạy với kho lớn hơn (e2e writing hiện có).
+
+**Rủi ro / giả định:** dữ liệu Tatoeba tải ~vài chục MB (để ngoài repo, không commit); cần mạng. Chia cụm tự động có thể sai → bắt buộc qua T-003.3. Tatoeba có thể thiếu câu tiếng Việt đủ chất lượng; khi đó tự viết thêm (`original`).
+
+**Có tách folder con không:** Không (6 task, một vùng).

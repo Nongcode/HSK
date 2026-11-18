@@ -59,3 +59,6 @@ Vitest: bộ chấm, schema nội dung, hàng đợi câu sai, thống kê lỗi
 | 9 | WritingSession.tsx, FeedbackPanel.tsx, app/writing/practice/page.tsx (ngoài (main), ?mode=wrong|practice) |
 | 10 | Trang /writing, /writing/rules, /writing/rules/[id], /writing/mistakes; WritingHome/RuleView/MistakesView; AppShell bật Luyện viết; HomeDashboard lối tắt; practice?rule= |
 | 11 | e2e/writing.spec.ts: TC-10..14, kéo thả, ảnh sáng/tối; docs/index.html |
+
+## CR-003 (kế hoạch)
+Vị trí dự kiến: scripts/import-tatoeba.ts (mới), src/lib/writing/schema.ts (thêm source tùy chọn), scripts/lib/validate-writing.ts, src/content/writing/sentences.json, src/app/(main)/about/page.tsx. Nguồn: Tatoeba CC BY 2.0 FR.
