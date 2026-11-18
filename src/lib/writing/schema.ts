@@ -18,6 +18,7 @@ export const SentenceSchema = z
     mistakes: z.array(z.object({ order: z.array(z.number().int()), tag })),
     difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]),
     reviewed: z.boolean(),
+    source: z.string().optional(),
   })
   .superRefine((s, ctx) => {
     const n = s.chunks.length;

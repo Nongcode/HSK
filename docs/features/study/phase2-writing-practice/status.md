@@ -66,9 +66,14 @@
 |---|---|---|---|---|
 | T-003.1 | Khảo sát dạng đề HSK4 công khai | ✅ DONE | Bỏ qua Playwright: chỉ đọc tài liệu | xem design.md mục CR-003 khảo sát |
 | T-003.2 | Script nhập Tatoeba | ✅ DONE | vitest tatoeba 10/10, tsc+eslint sạch; bỏ qua Playwright (không đổi UI) | 295 ứng viên; xem ghi chú dưới |
-| T-003.3 | Rà soát bằng agent (2 lượt) | ⬜ TODO | | |
-| T-003.4 | Nhập câu vào sentences.json + trường source | ⬜ TODO | | |
+| T-003.3 | Rà soát bằng agent (soạn + thẩm định độc lập) | ✅ DONE | bỏ qua Playwright: dữ liệu | 3 thẩm định: câu mới 153 ok/24 fix/0 drop; câu cũ 86/12/2 drop |
+| T-003.4 | Nhập câu vào sentences.json + trường source | ✅ DONE | vitest 190/190, validate OK, tsc sạch, lint 0 lỗi; Playwright để T-003.6 | 275 câu |
 | T-003.5 | Trang Giấy phép: thêm Tatoeba | ⬜ TODO | | cần Playwright |
 | T-003.6 | Xác minh cuối + tài liệu | ⬜ TODO | | |
 
 **T-003.2 ghi chú (2026-11-18):** dữ liệu Tatoeba tải về `D:/hsk-data/tatoeba/out` (ngoài repo; file export theo ngôn ngữ không kèm tác giả nên ghi nguồn bằng id `tatoeba:<id>` + trang Giấy phép). Script `scripts/import-tatoeba.ts` + `scripts/lib/tatoeba.ts` cho **295 ứng viên** (`D:/hsk-data/candidates.json`): 257 chưa gắn quy tắc, 29 shi-de, 9 ba, 0 bei (heuristic từ khoá còn thô, có dương tính giả như 是…的 trong "可惜这是真的"). Ruling: script chỉ phân đoạn từ (longest-match), việc chia cụm cuối + `accepted`/`mistakes`/pinyin giao cho agent ở T-003.3 vì chia cụm tự động không đủ tin cậy. Bản dịch Việt của Tatoeba lỏng/sai ở một số câu (vd. tatoeba:15, :332638) → agent phải viết lại `meaningVi` khi cần. Với 295 ứng viên, 0 câu bei → có thể cần tự viết thêm câu `original` cho bei/result/time-place.
+
+**T-003.3/.4 ghi chú (2026-11-18):** 4 agent soạn (3 lô Tatoeba → 107 câu, 1 lô tự viết → 70 câu), 3 agent thẩm định độc lập (không phải tác giả). Áp mọi `fix`, loại w050 và w067 (sai thời thể / 被 gượng). Kết quả `sentences.json`: **275 câu** (98 cũ + 177 mới, id w101–w277, `source` = `tatoeba:<id>` hoặc `original`, tất cả `reviewed:false`). Theo quy tắc: adverbial 83, time-place 47, attributive 40, ba 28, result 28, shi-de 27, bei 22.
+- Ruling: ngưỡng test đặt **≥ 250 câu, ≥ 20/quy tắc** (kế hoạch ghi ≥ 25) vì Tatoeba hầu như không có câu 被 dùng được; bei chỉ có 22. Chi phí nếu sai: quy tắc 被 ít câu hơn các quy tắc khác.
+- Ruling: `source` là trường tùy chọn trong schema; 100 câu gốc không có (tác giả là chính dự án), test chỉ bắt buộc với id > w100.
+- Ghi nhận chưa xử lý: w032/w034/w085/n024/n032 thuộc bổ ngữ trình độ/xu hướng/thời lượng nhưng gắn `result` (chưa có quy tắc riêng); validator kiểm tra chữ chứ không kiểm tra từ nên vài từ (院子, 班长, 湿) có thể vượt HSK4.
