@@ -14,3 +14,4 @@ Thiết kế đã chốt nằm ở spec (mục 3, 4, 9). Mục này ghi vị tr�
 | 7 | `src/components/{AppShell,FocusLayout,EphemeralBanner,ThemeToggle}.tsx`, `src/app/(main)/layout.tsx`, `src/app/layout.tsx` (AppProvider), `e2e/shell.spec.ts` |
 | 8 | `src/components/vocab/{VocabList,WordCard,WordDetail,HanziText}.tsx`, `src/lib/vocab/{search,pos}.ts`, `src/lib/speech.ts`, `src/app/(main)/vocab/**` |
 | 9 | `src/lib/srs/queue.ts` (`buildQueue`, `countNewToday`), `src/components/review/*`, `src/app/review/page.tsx` (ngoài route group → không có nav); sửa `dexie-storage.ts` listDue clamp |
+| 10 | HomeDashboard.tsx, stats.ts (streakDays), (main)/page.tsx |
