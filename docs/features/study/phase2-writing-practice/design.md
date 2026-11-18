@@ -49,3 +49,4 @@ Vitest: bộ chấm, schema nội dung, hàng đợi câu sai, thống kê lỗi
 | Task | File / symbol | Mô tả |
 |---|---|---|
 | 1 | types.ts (ErrorTag, WritingAttempt, Settings.flaggedSentences), backup-schema.ts (attempts), dexie-storage.ts (v2 + attempts), memory-storage.ts |
+| 2 | src/lib/writing/{schema,grade,shuffle,stats,labels}.ts |
