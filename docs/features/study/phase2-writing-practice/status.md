@@ -8,9 +8,9 @@
 |---|---|
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-002 — Luyện viết: sắp xếp câu |
-| Bước Superpowers | brainstorming xong → chờ người dùng duyệt design.md → writing-plans |
+| Bước Superpowers | writing-plans xong → chờ người dùng duyệt plan → executing-plans |
 | Task đang làm | — |
-| **Bước tiếp theo** | Người dùng duyệt design.md, rồi lập plan.md bằng writing-plans |
+| **Bước tiếp theo** | Người dùng duyệt plan.md; sau đó làm T-002.1 |
 | Branch | feat/phase1-foundation (làm tiếp trên nhánh này) |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Chưa có code |
@@ -27,7 +27,17 @@
 
 | ID | Task | Trạng thái | Test | Ghi chú |
 |---|---|---|---|---|
-| — | Chưa lập plan | ⬜ TODO | | |
+| T-002.1 | Lưu trữ: attempts, cờ nghi sai, Dexie v2 | ⬜ TODO | | |
+| T-002.2 | Schema, bộ chấm, xáo trộn, thống kê | ⬜ TODO | | |
+| T-002.3 | Bài quy tắc + validate nội dung viết | ⬜ TODO | | |
+| T-002.4 | Câu mẫu đợt 1 (~50) | ⬜ TODO | | |
+| T-002.5 | Câu mẫu đợt 2 (~100) | ⬜ TODO | | |
+| T-002.6 | Hàng đợi luyện viết + ghi kết quả SRS | ⬜ TODO | | |
+| T-002.7 | Bảng sắp xếp câu (chạm + bàn phím) | ⬜ TODO | | |
+| T-002.8 | Kéo thả @dnd-kit | ⬜ TODO | | |
+| T-002.9 | Phiên luyện + phản hồi + ôn câu sai | ⬜ TODO | | |
+| T-002.10 | Trang Luyện viết, quy tắc, lỗi hay mắc, điều hướng | ⬜ TODO | | |
+| T-002.11 | E2E, ảnh chụp, kiểm tra cuối | ⬜ TODO | | |
 
 ## Kết quả test gần nhất
 | Thời gian | Lệnh / kịch bản | Kết quả | Ghi chú |
