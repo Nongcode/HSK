@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-002 — Luyện viết: sắp xếp câu |
 | Bước Superpowers | writing-plans xong → chờ người dùng duyệt plan → executing-plans |
-| Task đang làm | T-002.10 |
-| **Bước tiếp theo** | T-002.10 hub, quy tắc, câu sai, điều hướng |
+| Task đang làm | T-002.11 |
+| **Bước tiếp theo** | T-002.11 e2e + xác minh cuối |
 | Branch | feat/phase1-foundation (làm tiếp trên nhánh này) |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Chưa có code |
@@ -36,7 +36,7 @@
 | T-002.7 | Bảng sắp xếp câu (chạm + bàn phím) | ✅ DONE | SentenceBoard.test 8 ca pass; bỏ qua Playwright: chưa gắn vào trang (làm ở T-002.9) | |
 | T-002.8 | Kéo thả @dnd-kit | ✅ DONE | move.test 3 + SentenceBoard.test 8 pass (chạm vẫn hoạt động); Playwright kéo thả kiểm ở T-002.9/11 | |
 | T-002.9 | Phiên luyện + phản hồi + ôn câu sai | ✅ DONE | WritingSession.test 8 ca pass; tsc/lint ok; Playwright e2e gộp ở T-002.11 (trang /writing/practice đã có) | |
-| T-002.10 | Trang Luyện viết, quy tắc, lỗi hay mắc, điều hướng | ⬜ TODO | | |
+| T-002.10 | Trang Luyện viết, quy tắc, lỗi hay mắc, điều hướng | ✅ DONE | vitest 166/166, tsc/lint ok; Playwright shell+home pass (desktop+mobile); e2e luồng viết ở T-002.11 | |
 | T-002.11 | E2E, ảnh chụp, kiểm tra cuối | ⬜ TODO | | |
 
 ## Kết quả test gần nhất
