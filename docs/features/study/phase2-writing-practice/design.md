@@ -54,3 +54,4 @@ Vitest: bộ chấm, schema nội dung, hàng đợi câu sai, thống kê lỗi
 | 4 | sentences.json: 50 câu đợt 1 (w001–w050), 7 quy tắc; reviewed=false |
 | 5 | sentences.json: 100 câu (w001–w100), ≥12 câu mỗi quy tắc |
 | 6 | src/lib/writing/session.ts: pickPractice, buildWrongQueue, recordAttempt, cardIdFor |
+| 7 | src/components/writing/SentenceBoard.tsx: khay + dòng đáp án, phím 1–9/Backspace/Enter |
