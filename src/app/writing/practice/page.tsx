@@ -12,11 +12,14 @@ const rules = parseRules(rulesData);
 
 function Practice() {
   const router = useRouter();
-  const mode = useSearchParams().get("mode") === "wrong" ? "wrong" : "practice";
+  const params = useSearchParams();
+  const mode = params.get("mode") === "wrong" ? "wrong" : "practice";
+  const ruleId = params.get("rule");
+  const pool = mode === "practice" && ruleId ? sentences.filter((s) => s.ruleId === ruleId) : sentences;
   return (
     <WritingSession
       mode={mode}
-      sentences={sentences}
+      sentences={pool}
       rules={rules}
       onExit={() => router.push("/writing")}
     />

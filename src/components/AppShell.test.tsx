@@ -33,7 +33,7 @@ describe("FocusLayout", () => {
 });
 
 describe("AppShell", () => {
-  it("lists the four sections and disables the writing section", async () => {
+  it("lists the four sections and links the writing section", async () => {
     render(
       <AppProvider words={[]} load={async () => ({ storage: new MemoryStorage(), isEphemeral: false })}>
         <AppShell>nội dung</AppShell>
@@ -43,9 +43,10 @@ describe("AppShell", () => {
     expect(screen.getByRole("link", { name: "Trang chủ" })).toHaveAttribute("href", "/");
     expect(screen.getByRole("link", { name: "Từ vựng" })).toHaveAttribute("aria-current", "page");
     expect(screen.getByRole("link", { name: "Cài đặt" })).toHaveAttribute("href", "/settings");
-    const writing = screen.getByText(/Luyện viết/);
-    expect(writing.closest("a")).toBeNull();
-    expect(writing.closest("[aria-disabled='true']")).not.toBeNull();
+    const writing = screen.getByRole("link", { name: "Luyện viết" });
+    expect(writing).toHaveAttribute("href", "/writing");
+    expect(writing).not.toHaveAttribute("aria-disabled");
+    expect(screen.queryByText(/sắp có/)).not.toBeInTheDocument();
   });
 });
 

@@ -78,6 +78,12 @@ export function HomeDashboard() {
         >
           Thư viện từ
         </Link>
+        <Link
+          href="/writing"
+          className="inline-flex min-h-11 items-center rounded-lg border border-line bg-surface px-4 text-sm hover:border-accent"
+        >
+          Luyện viết
+        </Link>
       </nav>
     </div>
   );

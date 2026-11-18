@@ -8,7 +8,7 @@ import { ThemeToggle } from "./ThemeToggle";
 const ITEMS = [
   { href: "/", label: "Trang chủ" },
   { href: "/vocab", label: "Từ vựng" },
-  { href: null, label: "Luyện viết" },
+  { href: "/writing", label: "Luyện viết" },
   { href: "/settings", label: "Cài đặt" },
 ] as const;
 
@@ -20,24 +20,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     <ul className="flex w-full items-center justify-around gap-1 md:justify-start">
       {ITEMS.map((item) => (
         <li key={item.label}>
-          {item.href ? (
-            <Link
-              href={item.href}
-              aria-current={isActive(item.href) ? "page" : undefined}
-              className={`flex min-h-11 items-center rounded-lg px-3 text-sm ${
-                isActive(item.href) ? "bg-surface font-medium text-accent" : "text-muted hover:bg-surface"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ) : (
-            <span
-              aria-disabled="true"
-              className="flex min-h-11 items-center gap-1 rounded-lg px-3 text-sm text-muted opacity-60"
-            >
-              {item.label} <small>(sắp có)</small>
-            </span>
-          )}
+          <Link
+            href={item.href}
+            aria-current={isActive(item.href) ? "page" : undefined}
+            className={`flex min-h-11 items-center rounded-lg px-3 text-sm ${
+              isActive(item.href) ? "bg-surface font-medium text-accent" : "text-muted hover:bg-surface"
+            }`}
+          >
+            {item.label}
+          </Link>
         </li>
       ))}
     </ul>

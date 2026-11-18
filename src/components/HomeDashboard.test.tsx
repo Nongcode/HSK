@@ -34,6 +34,11 @@ function setup(words: Word[]) {
 }
 
 describe("HomeDashboard", () => {
+  it("offers a shortcut to writing practice", async () => {
+    setup([]);
+    expect(await screen.findByRole("link", { name: "Luyện viết" })).toHaveAttribute("href", "/writing");
+  });
+
   it("shows how many cards are ready and links to the review session", async () => {
     setup([word("a"), word("b")]);
     expect(await screen.findByText(/2 thẻ/)).toBeInTheDocument();
