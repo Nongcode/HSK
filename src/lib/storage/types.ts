@@ -1,4 +1,24 @@
-import type { Word } from "@/lib/content/schema";
+import type { Word }
+ from "@/lib/content/schema";
+
+export const ERROR_TAGS = [
+  "adverbial-before-verb",
+  "ba-position",
+  "bei-position",
+  "shi-de",
+  "result-complement",
+  "attributive-order",
+  "time-place-order",
+  "other",
+] as const;
+export type ErrorTag = (typeof ERROR_TAGS)[number];
+
+export interface WritingAttempt {
+  sentenceId: string;
+  ok: boolean;
+  tag: ErrorTag | null;
+  at: number;
+}
 
 export type Grade = "again" | "hard" | "good" | "easy";
 
@@ -27,6 +47,7 @@ export interface Settings {
   theme: "light" | "dark" | "system";
   fontScale: number;
   lastBackupAt: number | null;
+  flaggedSentences: string[];
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -36,6 +57,7 @@ export const DEFAULT_SETTINGS: Settings = {
   theme: "system",
   fontScale: 1,
   lastBackupAt: null,
+  flaggedSentences: [],
 };
 
 export interface BackupV1 {
@@ -45,6 +67,7 @@ export interface BackupV1 {
   reviews: ReviewLog[];
   settings: Settings;
   edits: Record<string, Partial<Word>>;
+  attempts?: WritingAttempt[];
 }
 
 export interface Storage {
@@ -55,6 +78,8 @@ export interface Storage {
   countDue(now: number): Promise<number>;
   addReview(r: ReviewLog): Promise<void>;
   listReviews(): Promise<ReviewLog[]>;
+  addAttempt(a: WritingAttempt): Promise<void>;
+  listAttempts(): Promise<WritingAttempt[]>;
   getSettings(): Promise<Settings>;
   putSettings(p: Partial<Settings>): Promise<void>;
   getEdit(id: string): Promise<Partial<Word> | undefined>;

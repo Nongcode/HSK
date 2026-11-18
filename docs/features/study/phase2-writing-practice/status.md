@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-002 — Luyện viết: sắp xếp câu |
 | Bước Superpowers | writing-plans xong → chờ người dùng duyệt plan → executing-plans |
-| Task đang làm | — |
-| **Bước tiếp theo** | Người dùng duyệt plan.md; sau đó làm T-002.1 |
+| Task đang làm | T-002.2 |
+| **Bước tiếp theo** | T-002.2 schema, bộ chấm, xáo trộn, thống kê |
 | Branch | feat/phase1-foundation (làm tiếp trên nhánh này) |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Chưa có code |
@@ -27,7 +27,7 @@
 
 | ID | Task | Trạng thái | Test | Ghi chú |
 |---|---|---|---|---|
-| T-002.1 | Lưu trữ: attempts, cờ nghi sai, Dexie v2 | ⬜ TODO | | |
+| T-002.1 | Lưu trữ: attempts, cờ nghi sai, Dexie v2 | ✅ DONE | vitest 109/109 + tsc; Bỏ qua Playwright: lớp dữ liệu | |
 | T-002.2 | Schema, bộ chấm, xáo trộn, thống kê | ⬜ TODO | | |
 | T-002.3 | Bài quy tắc + validate nội dung viết | ⬜ TODO | | |
 | T-002.4 | Câu mẫu đợt 1 (~50) | ⬜ TODO | | |

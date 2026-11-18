@@ -5,6 +5,7 @@ import {
   type BackupV1,
   type CardState,
   type ReviewLog,
+  type WritingAttempt,
   type Settings,
   type Storage,
 } from "./types";
@@ -12,6 +13,7 @@ import {
 export class MemoryStorage implements Storage {
   private cards = new Map<string, CardState>();
   private reviews: ReviewLog[] = [];
+  private attempts: WritingAttempt[] = [];
   private settings: Settings = { ...DEFAULT_SETTINGS };
   private edits = new Map<string, Partial<Word>>();
 
@@ -36,6 +38,12 @@ export class MemoryStorage implements Storage {
   async listReviews() {
     return [...this.reviews];
   }
+  async addAttempt(a: WritingAttempt) {
+    this.attempts.push(a);
+  }
+  async listAttempts() {
+    return [...this.attempts];
+  }
   async getSettings() {
     return { ...this.settings };
   }
@@ -56,12 +64,14 @@ export class MemoryStorage implements Storage {
       reviews: [...this.reviews],
       settings: { ...this.settings },
       edits: Object.fromEntries(this.edits),
+      attempts: [...this.attempts],
     };
   }
   async importAll(raw: unknown) {
     const b = parseBackup(raw);
     this.cards = new Map(b.cards.map((c) => [c.id, c]));
     this.reviews = [...b.reviews];
+    this.attempts = [...b.attempts];
     this.settings = { ...b.settings };
     this.edits = new Map(Object.entries(b.edits));
   }

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- hostile-input fixtures */
 import "fake-indexeddb/auto";
+import Dexie from "dexie";
 import { describe, expect, it } from "vitest";
 import { DexieStorage } from "./dexie-storage";
 import { MemoryStorage } from "./memory-storage";
@@ -92,5 +93,76 @@ describe.each(impls)("%s backup validation rejects values that would break the a
     mutate(b);
     await expect(s.importAll(b)).rejects.toThrow();
     expect(await s.getCard("keep")).toEqual(card("keep", 100));
+  });
+});
+
+describe.each(impls)("%s writing attempts", (_name, make) => {
+  const at = (id: string, ok: boolean, t: number) => ({
+    sentenceId: id,
+    ok,
+    tag: ok ? null : ("ba-position" as const),
+    at: t,
+  });
+
+  it("stores attempts in insertion order", async () => {
+    const s = make();
+    await s.addAttempt(at("a", false, 1));
+    await s.addAttempt(at("b", true, 2));
+    expect((await s.listAttempts()).map((x) => x.sentenceId)).toEqual(["a", "b"]);
+  });
+
+  it("stores flagged sentences in settings and exports them", async () => {
+    const s = make();
+    await s.putSettings({ flaggedSentences: ["a"] });
+    expect((await s.exportAll()).settings.flaggedSentences).toEqual(["a"]);
+  });
+
+  it("round-trips attempts through export and import", async () => {
+    const a = make();
+    await a.addAttempt(at("a", false, 1));
+    const b = make();
+    await b.importAll(await a.exportAll());
+    expect(await b.listAttempts()).toEqual([at("a", false, 1)]);
+  });
+
+  it("restores an old backup that has no attempts or flaggedSentences", async () => {
+    const s = make();
+    await s.addAttempt(at("x", true, 1));
+    const old: Record<string, any> = await make().exportAll();
+    delete old.attempts;
+    delete old.settings.flaggedSentences;
+    await s.importAll(old);
+    expect(await s.listAttempts()).toEqual([]);
+    expect((await s.getSettings()).flaggedSentences).toEqual([]);
+  });
+
+  it.each([
+    [{ sentenceId: 5, ok: true, tag: null, at: 1 }],
+    [{ sentenceId: "a", ok: false, tag: "bad", at: 1 }],
+  ])("rejects malformed attempts and keeps existing data", async (bad) => {
+    const s = make();
+    await s.addAttempt(at("keep", true, 1));
+    const b: Record<string, any> = await make().exportAll();
+    b.attempts = [bad];
+    await expect(s.importAll(b)).rejects.toThrow();
+    expect((await s.listAttempts()).map((x) => x.sentenceId)).toEqual(["keep"]);
+  });
+});
+
+describe("DexieStorage upgrade from version 1", () => {
+  it("keeps phase 1 data when opening with the version 2 schema", async () => {
+    const name = `upgrade-db-${n++}`;
+    const old = new Dexie(name);
+    old.version(1).stores({ cards: "id, due", reviews: "++seq, cardId, at", settings: "key", edits: "id" });
+    await old.open();
+    await old.table("cards").put(card("kept", 5));
+    await old.table("reviews").add({ cardId: "kept", grade: "good", at: 1, prevIntervalDays: 0, nextIntervalDays: 1 });
+    old.close();
+
+    const s = new DexieStorage(name);
+    await s.open();
+    expect(await s.getCard("kept")).toEqual(card("kept", 5));
+    expect(await s.listReviews()).toHaveLength(1);
+    expect(await s.listAttempts()).toEqual([]);
   });
 });
