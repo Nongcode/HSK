@@ -7,3 +7,4 @@ Thiết kế đã chốt nằm ở spec (mục 3, 4, 9). Mục này ghi vị tr�
 |---|---|---|
 | 1 | `src/app/globals.css` (token --bg/--surface/--text/--muted/--accent/--ok/--warn, `.dark`), `src/app/layout.tsx`, `vitest.config.ts`, `playwright.config.ts` | Next 16 + Tailwind v4, Noto Sans/Serif SC, vi |
 | 2 | `src/lib/content/schema.ts` — `WordSchema`, `Word`, `parseVocab` |
+| 3 | `scripts/lib/merge.ts` (`mergeWord`, `inScope`), `scripts/build-vocab.ts`, `scripts/validate-content.ts`, `src/content/vocab/hsk-words.json` (3317 từ, 3293 có nghĩa Việt) |
