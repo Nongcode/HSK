@@ -12,3 +12,4 @@ Thiết kế đã chốt nằm ở spec (mục 3, 4, 9). Mục này ghi vị tr�
 | 5 | `src/lib/srs/sm2.ts` — `newCard`, `schedule` |
 | 6 | `src/lib/vocab/index.ts` (`wordsFor`, `applyEdit`), `src/lib/app-context.tsx` (`AppProvider`, `useApp`: words/allWords/settings/saveEdit/isEphemeral) |
 | 7 | `src/components/{AppShell,FocusLayout,EphemeralBanner,ThemeToggle}.tsx`, `src/app/(main)/layout.tsx`, `src/app/layout.tsx` (AppProvider), `e2e/shell.spec.ts` |
+| 8 | `src/components/vocab/{VocabList,WordCard,WordDetail,HanziText}.tsx`, `src/lib/vocab/{search,pos}.ts`, `src/lib/speech.ts`, `src/app/(main)/vocab/**` |

@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-001 — Nền tảng, từ vựng, flashcard SRS |
 | Bước Superpowers | executing-plans (inline) |
-| Task đang làm | T-001.8 |
-| **Bước tiếp theo** | Task 8: thư viện từ vựng src/app/(main)/vocab |
+| Task đang làm | T-001.9 |
+| **Bước tiếp theo** | Task 9: queue.ts + Flashcard + /review (FocusLayout) |
 | Branch | feat/phase1-foundation |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Không |
@@ -33,7 +33,7 @@
 | T-001.5 | SM-2 | ✅ DONE | vitest sm2 6/6; Bỏ qua Playwright: hàm thuần | |
 | T-001.6 | Nạp từ vựng + AppContext | ✅ DONE | vitest 6/6 + tsc; Bỏ qua Playwright: chưa có UI | |
 | T-001.7 | AppShell + FocusLayout | ✅ DONE | vitest 5/5 + Playwright e2e/shell.spec.ts (desktop+mobile) 2/2 | Route group (main) |
-| T-001.8 | Thư viện từ vựng | ⬜ TODO | | |
+| T-001.8 | Thư viện từ vựng | ✅ DONE | vitest 11/11 + Playwright TC-01 4/4 (desktop+mobile), ảnh chụp đã soát bố cục | |
 | T-001.9 | Phiên flashcard | ⬜ TODO | | |
 | T-001.10 | Trang chủ | ⬜ TODO | | |
 | T-001.11 | Cài đặt + sao lưu | ⬜ TODO | | |
@@ -42,6 +42,7 @@
 ## Kết quả test gần nhất
 | Thời gian | Lệnh / kịch bản | Kết quả | Ghi chú |
 |---|---|---|---|
+| 2026-11-18 11:50 | npx playwright test e2e/shell.spec.ts, e2e/vocab.spec.ts (TC-01) | ✅ pass 6/6 | desktop + mobile; ảnh ở screenshots/ |
 
 ## Nhật ký phiên
 - 2026-11-18 — Spec và plan đã duyệt; chọn thực thi Native; tạo nhánh và tài liệu chức năng.
