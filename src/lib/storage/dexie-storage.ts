@@ -1,0 +1,100 @@
+import Dexie, { type EntityTable } from "dexie";
+import type { Word } from "@/lib/content/schema";
+import { parseBackup } from "./backup-schema";
+import {
+  DEFAULT_SETTINGS,
+  type BackupV1,
+  type CardState,
+  type ReviewLog,
+  type Settings,
+  type Storage,
+} from "./types";
+
+type EditRow = { id: string; patch: Partial<Word> };
+type SettingsRow = { key: "main"; value: Settings };
+type ReviewRow = ReviewLog & { seq?: number };
+
+class HskDb extends Dexie {
+  cards!: EntityTable<CardState, "id">;
+  reviews!: EntityTable<ReviewRow, "seq">;
+  settings!: EntityTable<SettingsRow, "key">;
+  edits!: EntityTable<EditRow, "id">;
+
+  constructor(name: string) {
+    super(name);
+    this.version(1).stores({
+      cards: "id, due",
+      reviews: "++seq, cardId, at",
+      settings: "key",
+      edits: "id",
+    });
+  }
+}
+
+export class DexieStorage implements Storage {
+  private db: HskDb;
+
+  constructor(name = "hsk4-study") {
+    this.db = new HskDb(name);
+  }
+
+  /** Opens the database; rejects when IndexedDB is unavailable. */
+  open() {
+    return this.db.open();
+  }
+
+  getCard(id: string) {
+    return this.db.cards.get(id);
+  }
+  async putCard(s: CardState) {
+    await this.db.cards.put(s);
+  }
+  listDue(now: number, limit: number) {
+    return this.db.cards.where("due").belowOrEqual(now).limit(limit).toArray();
+  }
+  countDue(now: number) {
+    return this.db.cards.where("due").belowOrEqual(now).count();
+  }
+  async addReview(r: ReviewLog) {
+    await this.db.reviews.add({ ...r });
+  }
+  async listReviews() {
+    const rows = await this.db.reviews.orderBy("seq").toArray();
+    return rows.map(({ seq: _seq, ...r }) => r);
+  }
+  async getSettings(): Promise<Settings> {
+    const row = await this.db.settings.get("main");
+    return { ...DEFAULT_SETTINGS, ...row?.value };
+  }
+  async putSettings(p: Partial<Settings>) {
+    const current = await this.getSettings();
+    await this.db.settings.put({ key: "main", value: { ...current, ...p } });
+  }
+  async getEdit(id: string) {
+    return (await this.db.edits.get(id))?.patch;
+  }
+  async putEdit(id: string, patch: Partial<Word>) {
+    await this.db.edits.put({ id, patch });
+  }
+  async exportAll(): Promise<BackupV1> {
+    return {
+      version: 1,
+      exportedAt: Date.now(),
+      cards: await this.db.cards.toArray(),
+      reviews: await this.listReviews(),
+      settings: await this.getSettings(),
+      edits: Object.fromEntries((await this.db.edits.toArray()).map((e) => [e.id, e.patch])),
+    };
+  }
+  async importAll(raw: unknown) {
+    const b = parseBackup(raw);
+    const { cards, reviews, settings, edits } = this.db;
+    await this.db.transaction("rw", [cards, reviews, settings, edits], async () => {
+      await Promise.all([cards.clear(), reviews.clear(), settings.clear(), edits.clear()]);
+      await cards.bulkPut(b.cards);
+      await reviews.bulkAdd(b.reviews.map((r) => ({ ...r })));
+      await settings.put({ key: "main", value: b.settings });
+      await edits.bulkPut(Object.entries(b.edits).map(([id, patch]) => ({ id, patch })));
+    });
+  }
+}
