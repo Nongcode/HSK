@@ -14,10 +14,10 @@ describe("writing content", () => {
     expect(validateWriting(sentences, rules, words)).toEqual([]);
   });
 
-  it("has at least 50 sentences, 5 per rule, all unreviewed", () => {
-    expect(sentences.length).toBeGreaterThanOrEqual(50);
+  it("has at least 100 sentences, 12 per rule, all unreviewed", () => {
+    expect(sentences.length).toBeGreaterThanOrEqual(100);
     for (const r of rules) {
-      expect(sentences.filter((s) => s.ruleId === r.id).length, r.id).toBeGreaterThanOrEqual(5);
+      expect(sentences.filter((s) => s.ruleId === r.id).length, r.id).toBeGreaterThanOrEqual(12);
     }
     expect(sentences.every((s) => s.reviewed === false)).toBe(true);
   });

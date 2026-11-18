@@ -1776,5 +1776,1726 @@
     ],
     "difficulty": 3,
     "reviewed": false
+  },
+  {
+    "id": "w051",
+    "chunks": [
+      "她",
+      "也",
+      "想",
+      "学汉语"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā yě xiǎng xué Hànyǔ.",
+    "meaningVi": "Cô ấy cũng muốn học tiếng Trung.",
+    "pattern": "S + 也 + 想 + V + O",
+    "ruleId": "adverbial",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "tag": "adverbial-before-verb"
+      }
+    ],
+    "difficulty": 1,
+    "reviewed": false
+  },
+  {
+    "id": "w052",
+    "chunks": [
+      "我",
+      "马上",
+      "就",
+      "到"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ mǎshàng jiù dào.",
+    "meaningVi": "Tôi đến ngay đây.",
+    "pattern": "S + 马上 + 就 + V",
+    "ruleId": "adverbial",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          3,
+          1,
+          2
+        ],
+        "tag": "adverbial-before-verb"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w053",
+    "chunks": [
+      "他",
+      "从来",
+      "不",
+      "迟到"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā cónglái bù chídào.",
+    "meaningVi": "Anh ấy chưa bao giờ đến muộn.",
+    "pattern": "S + 从来 + 不 + V",
+    "ruleId": "adverbial",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          3,
+          1,
+          2
+        ],
+        "tag": "adverbial-before-verb"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w054",
+    "chunks": [
+      "这个孩子",
+      "特别",
+      "聪明"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Zhège háizi tèbié cōngming.",
+    "meaningVi": "Đứa trẻ này đặc biệt thông minh.",
+    "pattern": "S + 特别 + Adj",
+    "ruleId": "adverbial",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1
+        ],
+        "tag": "adverbial-before-verb"
+      }
+    ],
+    "difficulty": 1,
+    "reviewed": false
+  },
+  {
+    "id": "w055",
+    "chunks": [
+      "我们",
+      "先",
+      "吃饭",
+      "再说"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒmen xiān chī fàn zài shuō.",
+    "meaningVi": "Chúng ta ăn cơm trước rồi tính.",
+    "pattern": "S + 先 + V + 再 + V",
+    "ruleId": "adverbial",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "adverbial-before-verb"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w056",
+    "chunks": [
+      "你",
+      "怎么",
+      "才",
+      "来"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Nǐ zěnme cái lái?",
+    "meaningVi": "Sao bây giờ bạn mới đến?",
+    "pattern": "S + 怎么 + 才 + V",
+    "ruleId": "adverbial",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "tag": "adverbial-before-verb"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w057",
+    "chunks": [
+      "我",
+      "一直",
+      "在",
+      "等你"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ yìzhí zài děng nǐ.",
+    "meaningVi": "Tôi vẫn luôn đợi bạn.",
+    "pattern": "S + 一直 + 在 + V",
+    "ruleId": "adverbial",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "adverbial-before-verb"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w058",
+    "chunks": [
+      "请",
+      "把窗户",
+      "打开"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Qǐng bǎ chuānghu dǎkāi.",
+    "meaningVi": "Xin hãy mở cửa sổ ra.",
+    "pattern": "请 + 把 + O + V + 补语",
+    "ruleId": "ba",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1
+        ],
+        "tag": "ba-position"
+      }
+    ],
+    "difficulty": 1,
+    "reviewed": false
+  },
+  {
+    "id": "w059",
+    "chunks": [
+      "我",
+      "把手机",
+      "忘在",
+      "出租车上了"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ bǎ shǒujī wàng zài chūzūchē shàng le.",
+    "meaningVi": "Tôi để quên điện thoại trên taxi rồi.",
+    "pattern": "S + 把 + O + V + 在 + nơi chốn",
+    "ruleId": "ba",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "tag": "ba-position"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w060",
+    "chunks": [
+      "他",
+      "把钱",
+      "还给了",
+      "我"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā bǎ qián huán gěi le wǒ.",
+    "meaningVi": "Anh ấy đã trả tiền lại cho tôi.",
+    "pattern": "S + 把 + O + V + 给 + người",
+    "ruleId": "ba",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "tag": "ba-position"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w061",
+    "chunks": [
+      "大家",
+      "把椅子",
+      "搬到",
+      "外面"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Dàjiā bǎ yǐzi bān dào wàimiàn.",
+    "meaningVi": "Mọi người khiêng ghế ra ngoài.",
+    "pattern": "S + 把 + O + V + 到 + nơi chốn",
+    "ruleId": "ba",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "tag": "ba-position"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w062",
+    "chunks": [
+      "我",
+      "想",
+      "把这件事",
+      "告诉他"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ xiǎng bǎ zhè jiàn shì gàosu tā.",
+    "meaningVi": "Tôi muốn nói chuyện này cho anh ấy.",
+    "pattern": "S + 想 + 把 + O + V + 给 + người",
+    "ruleId": "ba",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "ba-position"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w063",
+    "chunks": [
+      "服务员",
+      "把菜",
+      "拿给了",
+      "我们"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Fúwùyuán bǎ cài ná gěi le wǒmen.",
+    "meaningVi": "Nhân viên đã mang món ăn cho chúng tôi.",
+    "pattern": "S + 把 + O + V + 给 + người",
+    "ruleId": "ba",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "tag": "ba-position"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w064",
+    "chunks": [
+      "请",
+      "把名字",
+      "写在",
+      "这里"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Qǐng bǎ míngzi xiě zài zhèlǐ.",
+    "meaningVi": "Xin hãy viết tên vào đây.",
+    "pattern": "请 + 把 + O + V + 在 + nơi chốn",
+    "ruleId": "ba",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "tag": "ba-position"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w065",
+    "chunks": [
+      "杯子",
+      "被孩子",
+      "打破了"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Bēizi bèi háizi dǎpò le.",
+    "meaningVi": "Cái cốc bị đứa trẻ làm vỡ.",
+    "pattern": "O + 被 + tác nhân + V + 补语",
+    "ruleId": "bei",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1
+        ],
+        "tag": "bei-position"
+      }
+    ],
+    "difficulty": 1,
+    "reviewed": false
+  },
+  {
+    "id": "w066",
+    "chunks": [
+      "我的伞",
+      "被同学",
+      "拿错了"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Wǒ de sǎn bèi tóngxué ná cuò le.",
+    "meaningVi": "Ô của tôi bị bạn học cầm nhầm.",
+    "pattern": "O + 被 + tác nhân + V + 补语",
+    "ruleId": "bei",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1
+        ],
+        "tag": "bei-position"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w067",
+    "chunks": [
+      "这个消息",
+      "很快",
+      "被大家",
+      "知道了"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Zhège xiāoxi hěn kuài bèi dàjiā zhīdào le.",
+    "meaningVi": "Tin này nhanh chóng bị mọi người biết.",
+    "pattern": "O + 很快 + 被 + tác nhân + V",
+    "ruleId": "bei",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "tag": "bei-position"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w068",
+    "chunks": [
+      "他",
+      "被老师",
+      "叫到了",
+      "办公室"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā bèi lǎoshī jiào dào le bàngōngshì.",
+    "meaningVi": "Anh ấy bị thầy giáo gọi đến văn phòng.",
+    "pattern": "O + 被 + tác nhân + V + 到 + nơi chốn",
+    "ruleId": "bei",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          3,
+          1
+        ],
+        "tag": "bei-position"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w069",
+    "chunks": [
+      "蛋糕",
+      "已经",
+      "被弟弟",
+      "吃完了"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Dàngāo yǐjīng bèi dìdi chīwán le.",
+    "meaningVi": "Bánh kem đã bị em trai ăn hết rồi.",
+    "pattern": "O + 已经 + 被 + tác nhân + V",
+    "ruleId": "bei",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "tag": "bei-position"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w070",
+    "chunks": [
+      "他的作业",
+      "被老师",
+      "表扬了"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Tā de zuòyè bèi lǎoshī biǎoyáng le.",
+    "meaningVi": "Bài tập của em ấy được thầy giáo khen.",
+    "pattern": "O + 被 + tác nhân + V",
+    "ruleId": "bei",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1
+        ],
+        "tag": "bei-position"
+      }
+    ],
+    "difficulty": 1,
+    "reviewed": false
+  },
+  {
+    "id": "w071",
+    "chunks": [
+      "昨天的会",
+      "被经理",
+      "取消了"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Zuótiān de huì bèi jīnglǐ qǔxiāo le.",
+    "meaningVi": "Cuộc họp hôm qua bị giám đốc hủy rồi.",
+    "pattern": "O + 被 + tác nhân + V",
+    "ruleId": "bei",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1
+        ],
+        "tag": "bei-position"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w072",
+    "chunks": [
+      "她",
+      "是去年",
+      "毕业",
+      "的"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā shì qùnián bìyè de.",
+    "meaningVi": "Cô ấy tốt nghiệp năm ngoái.",
+    "pattern": "S + 是 + thời gian + V + 的",
+    "ruleId": "shi-de",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "shi-de"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w073",
+    "chunks": [
+      "这本书",
+      "是谁",
+      "写",
+      "的"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Zhè běn shū shì shéi xiě de?",
+    "meaningVi": "Cuốn sách này do ai viết vậy?",
+    "pattern": "S + 是 + 谁 + V + 的",
+    "ruleId": "shi-de",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "shi-de"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w074",
+    "chunks": [
+      "你",
+      "是什么时候",
+      "来",
+      "的"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Nǐ shì shénme shíhou lái de?",
+    "meaningVi": "Bạn đến lúc nào vậy?",
+    "pattern": "S + 是 + 什么时候 + V + 的",
+    "ruleId": "shi-de",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "shi-de"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w075",
+    "chunks": [
+      "我",
+      "是用手机",
+      "买票",
+      "的"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ shì yòng shǒujī mǎi piào de.",
+    "meaningVi": "Tôi mua vé bằng điện thoại.",
+    "pattern": "S + 是 + 用 + công cụ + V + O + 的",
+    "ruleId": "shi-de",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "shi-de"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w076",
+    "chunks": [
+      "他们",
+      "是在网上",
+      "认识",
+      "的"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tāmen shì zài wǎngshàng rènshi de.",
+    "meaningVi": "Họ quen nhau trên mạng.",
+    "pattern": "S + 是 + nơi chốn + V + 的",
+    "ruleId": "shi-de",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "shi-de"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w077",
+    "chunks": [
+      "我",
+      "是坐地铁",
+      "来这儿",
+      "的"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ shì zuò dìtiě lái zhèr de.",
+    "meaningVi": "Tôi đến đây bằng tàu điện ngầm.",
+    "pattern": "S + 是 + cách thức + V + 的",
+    "ruleId": "shi-de",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "shi-de"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w078",
+    "chunks": [
+      "他",
+      "不是",
+      "在北京",
+      "出生的"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā bú shì zài Běijīng chūshēng de.",
+    "meaningVi": "Anh ấy không sinh ra ở Bắc Kinh.",
+    "pattern": "S + 不是 + nơi chốn + V + 的",
+    "ruleId": "shi-de",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "shi-de"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w079",
+    "chunks": [
+      "我",
+      "听懂了",
+      "老师的话"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Wǒ tīngdǒng le lǎoshī de huà.",
+    "meaningVi": "Tôi đã nghe hiểu lời thầy giáo.",
+    "pattern": "S + V + 补语 + 了 + O",
+    "ruleId": "result",
+    "mistakes": [
+      {
+        "order": [
+          1,
+          2,
+          0
+        ],
+        "tag": "result-complement"
+      }
+    ],
+    "difficulty": 1,
+    "reviewed": false
+  },
+  {
+    "id": "w080",
+    "chunks": [
+      "他",
+      "吃得",
+      "很快"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Tā chī de hěn kuài.",
+    "meaningVi": "Anh ấy ăn rất nhanh.",
+    "pattern": "S + V + 得 + Adj",
+    "ruleId": "result",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1
+        ],
+        "tag": "result-complement"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w081",
+    "chunks": [
+      "我",
+      "洗干净了",
+      "衣服"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Wǒ xǐ gānjìng le yīfu.",
+    "meaningVi": "Tôi đã giặt sạch quần áo rồi.",
+    "pattern": "S + V + 补语 + 了 + O",
+    "ruleId": "result",
+    "mistakes": [
+      {
+        "order": [
+          1,
+          2,
+          0
+        ],
+        "tag": "result-complement"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w082",
+    "chunks": [
+      "你",
+      "写得",
+      "真好"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Nǐ xiě de zhēn hǎo.",
+    "meaningVi": "Bạn viết thật đẹp.",
+    "pattern": "S + V + 得 + Adj",
+    "ruleId": "result",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1
+        ],
+        "tag": "result-complement"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w083",
+    "chunks": [
+      "她",
+      "唱歌",
+      "唱得",
+      "非常好听"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā chàng gē chàng de fēicháng hǎotīng.",
+    "meaningVi": "Cô ấy hát rất hay.",
+    "pattern": "S + V + O + V + 得 + 补语",
+    "ruleId": "result",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "result-complement"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w084",
+    "chunks": [
+      "我",
+      "没",
+      "看清楚",
+      "那个字"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ méi kàn qīngchu nàge zì.",
+    "meaningVi": "Tôi không nhìn rõ chữ đó.",
+    "pattern": "S + 没 + V + 补语 + O",
+    "ruleId": "result",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "result-complement"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w085",
+    "chunks": [
+      "我",
+      "等了",
+      "他",
+      "半个小时"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ děng le tā bàn ge xiǎoshí.",
+    "meaningVi": "Tôi đã đợi anh ấy nửa tiếng.",
+    "pattern": "S + V + 了 + O + 时量补语",
+    "ruleId": "result",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          3,
+          1,
+          2
+        ],
+        "tag": "result-complement"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w086",
+    "chunks": [
+      "这是",
+      "我昨天",
+      "买的",
+      "书"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Zhè shì wǒ zuótiān mǎi de shū.",
+    "meaningVi": "Đây là cuốn sách tôi mua hôm qua.",
+    "pattern": "这是 + mệnh đề + 的 + N",
+    "ruleId": "attributive",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          3,
+          1,
+          2
+        ],
+        "tag": "attributive-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w087",
+    "chunks": [
+      "他是",
+      "一个",
+      "非常认真的",
+      "学生"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā shì yí ge fēicháng rènzhēn de xuésheng.",
+    "meaningVi": "Anh ấy là một học sinh rất nghiêm túc.",
+    "pattern": "S + 是 + 数量词 + Adj + 的 + N",
+    "ruleId": "attributive",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          3,
+          1,
+          2
+        ],
+        "tag": "attributive-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w088",
+    "chunks": [
+      "这是",
+      "我妈妈",
+      "做的",
+      "蛋糕"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Zhè shì wǒ māma zuò de dàngāo.",
+    "meaningVi": "Đây là chiếc bánh kem mẹ tôi làm.",
+    "pattern": "这是 + mệnh đề + 的 + N",
+    "ruleId": "attributive",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          3,
+          1,
+          2
+        ],
+        "tag": "attributive-order"
+      }
+    ],
+    "difficulty": 1,
+    "reviewed": false
+  },
+  {
+    "id": "w089",
+    "chunks": [
+      "我",
+      "想买",
+      "一件",
+      "便宜的",
+      "衣服"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "pinyin": "Wǒ xiǎng mǎi yí jiàn piányi de yīfu.",
+    "meaningVi": "Tôi muốn mua một cái áo rẻ.",
+    "pattern": "S + V + 数量词 + Adj + 的 + N",
+    "ruleId": "attributive",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          1,
+          3,
+          4,
+          2
+        ],
+        "tag": "attributive-order"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w090",
+    "chunks": [
+      "站在门口的",
+      "那个人",
+      "是我老师"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "pinyin": "Zhàn zài ménkǒu de nàge rén shì wǒ lǎoshī.",
+    "meaningVi": "Người đứng ở cửa là thầy giáo của tôi.",
+    "pattern": "mệnh đề + 的 + N + 是 + O",
+    "ruleId": "attributive",
+    "mistakes": [
+      {
+        "order": [
+          1,
+          2,
+          0
+        ],
+        "tag": "attributive-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w091",
+    "chunks": [
+      "这是",
+      "一个",
+      "让人高兴的",
+      "消息"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Zhè shì yí ge ràng rén gāoxìng de xiāoxi.",
+    "meaningVi": "Đây là một tin khiến người ta vui.",
+    "pattern": "这是 + 数量词 + mệnh đề + 的 + N",
+    "ruleId": "attributive",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          3,
+          1,
+          2
+        ],
+        "tag": "attributive-order"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w092",
+    "chunks": [
+      "我",
+      "去过",
+      "一家",
+      "很大的",
+      "商店"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "pinyin": "Wǒ qùguo yì jiā hěn dà de shāngdiàn.",
+    "meaningVi": "Tôi đã đến một cửa hàng rất lớn.",
+    "pattern": "S + V + 数量词 + Adj + 的 + N",
+    "ruleId": "attributive",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          1,
+          3,
+          4,
+          2
+        ],
+        "tag": "attributive-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w093",
+    "chunks": [
+      "我",
+      "今天",
+      "在学校",
+      "吃午饭"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ jīntiān zài xuéxiào chī wǔfàn.",
+    "meaningVi": "Hôm nay tôi ăn trưa ở trường.",
+    "pattern": "S + TW + 在 + nơi chốn + V",
+    "ruleId": "time-place",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "time-place-order"
+      }
+    ],
+    "difficulty": 1,
+    "reviewed": false
+  },
+  {
+    "id": "w094",
+    "chunks": [
+      "他们",
+      "星期天",
+      "在公园",
+      "打球"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tāmen xīngqītiān zài gōngyuán dǎ qiú.",
+    "meaningVi": "Họ chơi bóng ở công viên vào chủ nhật.",
+    "pattern": "S + TW + 在 + nơi chốn + V",
+    "ruleId": "time-place",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "time-place-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w095",
+    "chunks": [
+      "奶奶",
+      "每天",
+      "在家里",
+      "做饭"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Nǎinai měitiān zài jiālǐ zuò fàn.",
+    "meaningVi": "Bà nội nấu cơm ở nhà mỗi ngày.",
+    "pattern": "S + TW + 在 + nơi chốn + V",
+    "ruleId": "time-place",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "time-place-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w096",
+    "chunks": [
+      "我",
+      "现在",
+      "在银行",
+      "工作"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒ xiànzài zài yínháng gōngzuò.",
+    "meaningVi": "Bây giờ tôi làm việc ở ngân hàng.",
+    "pattern": "S + TW + 在 + nơi chốn + V",
+    "ruleId": "time-place",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "time-place-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w097",
+    "chunks": [
+      "他",
+      "明年",
+      "去北京",
+      "工作"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā míngnián qù Běijīng gōngzuò.",
+    "meaningVi": "Năm sau anh ấy đi Bắc Kinh làm việc.",
+    "pattern": "S + TW + V + nơi chốn + V",
+    "ruleId": "time-place",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "time-place-order"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w098",
+    "chunks": [
+      "我们",
+      "晚上七点",
+      "在饭店",
+      "见面"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Wǒmen wǎnshang qī diǎn zài fàndiàn jiànmiàn.",
+    "meaningVi": "Bảy giờ tối chúng tôi gặp nhau ở nhà hàng.",
+    "pattern": "S + TW + 在 + nơi chốn + V",
+    "ruleId": "time-place",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "time-place-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
+  },
+  {
+    "id": "w099",
+    "chunks": [
+      "她",
+      "昨天晚上",
+      "在朋友家",
+      "住"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Tā zuótiān wǎnshang zài péngyou jiā zhù.",
+    "meaningVi": "Tối qua cô ấy ở nhà bạn.",
+    "pattern": "S + TW + 在 + nơi chốn + V",
+    "ruleId": "time-place",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "time-place-order"
+      }
+    ],
+    "difficulty": 3,
+    "reviewed": false
+  },
+  {
+    "id": "w100",
+    "chunks": [
+      "姐姐",
+      "去年",
+      "在上海",
+      "结婚"
+    ],
+    "accepted": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        0,
+        2,
+        3
+      ]
+    ],
+    "pinyin": "Jiějie qùnián zài Shànghǎi jiéhūn.",
+    "meaningVi": "Chị gái kết hôn ở Thượng Hải năm ngoái.",
+    "pattern": "S + TW + 在 + nơi chốn + V",
+    "ruleId": "time-place",
+    "mistakes": [
+      {
+        "order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "tag": "time-place-order"
+      }
+    ],
+    "difficulty": 2,
+    "reviewed": false
   }
 ]
