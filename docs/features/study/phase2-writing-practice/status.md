@@ -64,9 +64,11 @@
 
 | ID | Task | Trạng thái | Test | Ghi chú |
 |---|---|---|---|---|
-| T-003.1 | Khảo sát dạng đề HSK4 công khai | ⬜ TODO | | chỉ đọc |
-| T-003.2 | Script nhập Tatoeba | ⬜ TODO | | |
+| T-003.1 | Khảo sát dạng đề HSK4 công khai | ✅ DONE | Bỏ qua Playwright: chỉ đọc tài liệu | xem design.md mục CR-003 khảo sát |
+| T-003.2 | Script nhập Tatoeba | ✅ DONE | vitest tatoeba 10/10, tsc+eslint sạch; bỏ qua Playwright (không đổi UI) | 295 ứng viên; xem ghi chú dưới |
 | T-003.3 | Rà soát bằng agent (2 lượt) | ⬜ TODO | | |
 | T-003.4 | Nhập câu vào sentences.json + trường source | ⬜ TODO | | |
 | T-003.5 | Trang Giấy phép: thêm Tatoeba | ⬜ TODO | | cần Playwright |
 | T-003.6 | Xác minh cuối + tài liệu | ⬜ TODO | | |
+
+**T-003.2 ghi chú (2026-11-18):** dữ liệu Tatoeba tải về `D:/hsk-data/tatoeba/out` (ngoài repo; file export theo ngôn ngữ không kèm tác giả nên ghi nguồn bằng id `tatoeba:<id>` + trang Giấy phép). Script `scripts/import-tatoeba.ts` + `scripts/lib/tatoeba.ts` cho **295 ứng viên** (`D:/hsk-data/candidates.json`): 257 chưa gắn quy tắc, 29 shi-de, 9 ba, 0 bei (heuristic từ khoá còn thô, có dương tính giả như 是…的 trong "可惜这是真的"). Ruling: script chỉ phân đoạn từ (longest-match), việc chia cụm cuối + `accepted`/`mistakes`/pinyin giao cho agent ở T-003.3 vì chia cụm tự động không đủ tin cậy. Bản dịch Việt của Tatoeba lỏng/sai ở một số câu (vd. tatoeba:15, :332638) → agent phải viết lại `meaningVi` khi cần. Với 295 ứng viên, 0 câu bei → có thể cần tự viết thêm câu `original` cho bei/result/time-place.

@@ -62,3 +62,10 @@ Vitest: bộ chấm, schema nội dung, hàng đợi câu sai, thống kê lỗi
 
 ## CR-003 (kế hoạch)
 Vị trí dự kiến: scripts/import-tatoeba.ts (mới), src/lib/writing/schema.ts (thêm source tùy chọn), scripts/lib/validate-writing.ts, src/content/writing/sentences.json, src/app/(main)/about/page.tsx. Nguồn: Tatoeba CC BY 2.0 FR.
+
+### CR-003 · T-003.1 — Khảo sát dạng đề (2026-11-18)
+Nguồn tham khảo (chỉ học dạng, không chép nội dung): italki HSK4 guide, eblcu HSK4 guide, hsk4.mandarinzone.com/writing/sentence-order.
+- Đề cũ: phần viết 15 câu / 25 phút, 10 câu 完成句子 (sắp xếp từ/cụm), 5 câu 看图造句. Cấu trúc hay gặp: 把, 被, 是…的, so sánh, trật tự trạng ngữ (thời gian → địa điểm → cách thức → động từ).
+- **Lưu ý:** một nguồn cho biết đề HSK4 mới (2026) bỏ 完成句子, thay bằng 看图造句 ×5 + 写短文 ×1 (≥ 80 chữ); chỉ 1 nguồn, cần đối chiếu nguồn chính thức. Giá trị luyện trật tự từ vẫn còn, nhưng nên cân nhắc ghi chú này cho người dùng.
+- Số cụm mỗi câu chưa xác nhận được; giữ 3–8 như schema hiện tại.
+- Quyết định: giữ 7 quy tắc, mục tiêu ≥ 25 câu/quy tắc.

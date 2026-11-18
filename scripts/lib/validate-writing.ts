@@ -6,7 +6,7 @@ const HAN = /\p{Script=Han}/u;
 const MAX_LEVEL = 4;
 
 /** Characters that appear in any HSK 1-4 word of either version. */
-function allowedChars(words: Word[]): Set<string> {
+export function allowedChars(words: Word[]): Set<string> {
   const set = new Set<string>();
   for (const w of words) {
     if ((w.hsk2 !== null && w.hsk2 <= MAX_LEVEL) || (w.hsk3 !== null && w.hsk3 <= MAX_LEVEL)) {
@@ -16,7 +16,7 @@ function allowedChars(words: Word[]): Set<string> {
   return set;
 }
 
-function outOfScope(text: string, allowed: Set<string>): string[] {
+export function outOfScope(text: string, allowed: Set<string>): string[] {
   return [...new Set([...text].filter((ch) => !PUNCTUATION.includes(ch) && HAN.test(ch) && !allowed.has(ch)))];
 }
 
