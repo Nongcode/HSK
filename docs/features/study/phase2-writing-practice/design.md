@@ -51,3 +51,4 @@ Vitest: bộ chấm, schema nội dung, hàng đợi câu sai, thống kê lỗi
 | 1 | types.ts (ErrorTag, WritingAttempt, Settings.flaggedSentences), backup-schema.ts (attempts), dexie-storage.ts (v2 + attempts), memory-storage.ts |
 | 2 | src/lib/writing/{schema,grade,shuffle,stats,labels}.ts |
 | 3 | scripts/lib/validate-writing.ts, scripts/validate-content.ts, src/content/writing/{rules,sentences}.json |
+| 4 | sentences.json: 50 câu đợt 1 (w001–w050), 7 quy tắc; reviewed=false |
