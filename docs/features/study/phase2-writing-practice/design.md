@@ -56,3 +56,4 @@ Vitest: bộ chấm, schema nội dung, hàng đợi câu sai, thống kê lỗi
 | 6 | src/lib/writing/session.ts: pickPractice, buildWrongQueue, recordAttempt, cardIdFor |
 | 7 | src/components/writing/SentenceBoard.tsx: khay + dòng đáp án, phím 1–9/Backspace/Enter |
 | 8 | src/lib/writing/move.ts (moveChunk); SentenceBoard.tsx: DndContext + SortableContext, Space nhấc, thông báo tiếng Việt |
+| 9 | WritingSession.tsx, FeedbackPanel.tsx, app/writing/practice/page.tsx (ngoài (main), ?mode=wrong|practice) |
