@@ -53,3 +53,9 @@
 - `npm run build`: OK (có /writing/*, rules SSG)
 - `npx playwright test`: 36 pass, 1 skip (kéo thả chỉ desktop). 1 lần `vocab.spec` fail khi chạy song song (flaky đã biết; chạy riêng 4/4 pass). `writing.spec` TC-10 từng chậm do biên dịch dev lần đầu → nới timeout 20s.
 - Ảnh: `screenshots/T-002.11-*` (sáng/tối, desktop/mobile).
+
+## Review cuối nhánh (2026-11-18)
+- Reviewer (Opus): không có Critical. 2 Important đã sửa bằng TDD (RED→GREEN, vitest 179/179, writing e2e 13/13):
+  1. Enter toàn cục chiếm Enter của liên kết/nút đang focus → thêm `isFocusedControl` (2 test mới).
+  2. 11 câu thiếu thứ tự đúng tự nhiên (đảo tân ngữ/định ngữ) → thêm vào `accepted` (11 test mới); sửa pinyin w015.
+- Minor chưa xử lý: shuffle fallback không kiểm tra; bàn cờ chưa khóa khi đang lưu; thử lại sau lỗi lưu có thể đếm đôi attempt; phím số/Backspace hoạt động khi đang kéo bằng phím; mất focus sau khi chạm; `started` ref khi đổi query; WritingHome/MistakesView không có nhánh lỗi; validator kiểm tra chữ chứ không phải từ; nhãn `result-complement` gộp nhiều loại; nhắc sao lưu không tính luyện viết; chưa có test kéo bằng phím.
