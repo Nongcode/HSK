@@ -7,4 +7,4 @@ Trạng thái: 🟡 IN_PROGRESS · ✅ DONE · ⏸ PAUSED · 🔴 BLOCKED
 
 | Chức năng | Folder | Trạng thái | Yêu cầu đang làm | Cập nhật |
 |---|---|---|---|---|
-| Giai đoạn 1 — Nền tảng và từ vựng | [study/phase1-foundation-vocab](study/phase1-foundation-vocab/status.md) | 🟡 IN_PROGRESS | CR-001 — Nền tảng, từ vựng, flashcard SRS | 2026-11-18 |
+| Giai đoạn 1 — Nền tảng và từ vựng | [study/phase1-foundation-vocab](study/phase1-foundation-vocab/status.md) | ✅ DONE | — (chờ duyệt merge) | 2026-11-18 |

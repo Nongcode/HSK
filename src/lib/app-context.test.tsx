@@ -42,4 +42,22 @@ describe("AppProvider", () => {
     await waitFor(() => expect(screen.getByText("3.0|-|false")).toBeInTheDocument());
     expect(await storage.getCard("a")).toBeDefined();
   });
+
+  it("refresh() picks up data restored into storage", async () => {
+    const storage = new MemoryStorage();
+    function Btn() {
+      const { refresh } = useApp();
+      return <button onClick={() => refresh()}>r</button>;
+    }
+    render(
+      <AppProvider words={words} load={async () => ({ storage, isEphemeral: true })}>
+        <Probe />
+        <Btn />
+      </AppProvider>,
+    );
+    await screen.findByText("2.0|gốc|true");
+    await storage.putSettings({ hskVersion: "3.0" });
+    screen.getByText("r").click();
+    await waitFor(() => expect(screen.getByText(/^3\.0\|/)).toBeInTheDocument());
+  });
 });

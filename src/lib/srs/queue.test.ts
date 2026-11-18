@@ -43,6 +43,18 @@ describe("buildQueue", () => {
     expect(q.map((x) => x.id)).toEqual(["a"]);
   });
 
+  it("includes cards due later today, not only those already due this minute", async () => {
+    const morning = new Date(2026, 10, 18, 8, 0).getTime();
+    const evening = new Date(2026, 10, 18, 21, 0).getTime();
+    const tomorrow = new Date(2026, 10, 19, 0, 30).getTime();
+    const s = new MemoryStorage();
+    await s.putCard({ id: "late", ease: 2.5, intervalDays: 1, reps: 1, lapses: 0, due: evening });
+    await s.putCard({ id: "next", ease: 2.5, intervalDays: 1, reps: 1, lapses: 0, due: tomorrow });
+    const list = [w("late", 1), w("next", 1)];
+    const q = await buildQueue(s, list, morning, { hskVersion: "2.0", dailyNewLimit: 0, sessionLimit: 10, newToday: 0 });
+    expect(q.map((x) => x.id)).toEqual(["late"]);
+  });
+
   it("returns an empty queue when there is nothing to study", async () => {
     expect(await buildQueue(new MemoryStorage(), [], NOW, opts)).toEqual([]);
   });

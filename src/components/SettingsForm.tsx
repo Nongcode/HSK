@@ -8,7 +8,7 @@ import { downloadBackup, importBackupText } from "@/lib/backup";
 const field = "min-h-11 rounded-lg border border-line bg-surface px-3";
 
 export function SettingsForm() {
-  const { storage, settings, setSettings } = useApp();
+  const { storage, settings, setSettings, refresh } = useApp();
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
 
   async function onImport(file: File | undefined) {
@@ -16,7 +16,8 @@ export function SettingsForm() {
     if (!window.confirm("Khôi phục sẽ ghi đè toàn bộ tiến độ hiện tại. Bạn chắc chắn chứ?")) return;
     try {
       await importBackupText(storage, await file.text());
-      window.location.reload();
+      await refresh();
+      setMessage({ ok: true, text: "Đã khôi phục dữ liệu từ tệp sao lưu." });
     } catch (e) {
       setMessage({ ok: false, text: e instanceof Error ? e.message : "Không khôi phục được." });
     }
@@ -118,7 +119,7 @@ export function SettingsForm() {
           >
             Tải bản sao lưu
           </button>
-          <label className="inline-flex min-h-11 cursor-pointer items-center rounded-lg border border-line bg-surface px-4">
+          <label className="inline-flex min-h-11 cursor-pointer items-center rounded-lg border border-line bg-surface px-4 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent">
             Khôi phục từ tệp
             <input
               type="file"

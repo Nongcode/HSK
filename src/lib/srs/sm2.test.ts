@@ -51,6 +51,13 @@ describe("schedule", () => {
     expect(schedule(newCard("b", NOW), "easy", NOW).intervalDays).toBe(4);
   });
 
+  it("easy is never sooner than good, also right after the first review", () => {
+    const afterFirst = schedule(newCard("a", NOW), "good", NOW);
+    const good = schedule(afterFirst, "good", NOW);
+    const easy = schedule(afterFirst, "easy", NOW);
+    expect(easy.intervalDays).toBeGreaterThanOrEqual(good.intervalDays);
+  });
+
   it("does not mutate the input state", () => {
     const card = newCard("a", NOW);
     const copy = { ...card };

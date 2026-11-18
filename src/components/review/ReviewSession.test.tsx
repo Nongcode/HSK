@@ -43,6 +43,19 @@ describe("ReviewSession", () => {
     expect(await screen.findByText("人")).toBeInTheDocument();
   });
 
+  it("keeps working after a failed save instead of freezing", async () => {
+    setup();
+    await screen.findByText("爱");
+    const spy = vi.spyOn(storage, "putCard").mockRejectedValueOnce(new Error("quota"));
+    await userEvent.keyboard(" ");
+    await userEvent.keyboard("3");
+    expect(await screen.findByRole("alert")).toHaveTextContent(/không lưu được/i);
+    spy.mockRestore();
+    await userEvent.keyboard(" ");
+    await userEvent.keyboard("3");
+    expect(await screen.findByText("人")).toBeInTheDocument();
+  });
+
   it("ignores grade keys until the card is flipped", async () => {
     setup();
     await screen.findByText("爱");

@@ -6,11 +6,11 @@
 
 | Mục | Giá trị |
 |---|---|
-| Trạng thái | 🟡 IN_PROGRESS |
-| Yêu cầu đang làm | CR-001 — Nền tảng, từ vựng, flashcard SRS |
+| Trạng thái | ✅ DONE (chờ người dùng duyệt merge) |
+| Yêu cầu đang làm | Không (CR-001 hoàn tất) |
 | Bước Superpowers | executing-plans (inline) |
-| Task đang làm | T-001.13 |
-| **Bước tiếp theo** | Review toàn nhánh rồi hoàn tất |
+| Task đang làm | — |
+| **Bước tiếp theo** | Người dùng duyệt merge; sau đó lập spec/plan Giai đoạn 2 (Luyện viết, trọng tâm) |
 | Branch | feat/phase1-foundation |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Không |
@@ -47,3 +47,14 @@
 
 ## Nhật ký phiên
 - 2026-11-18 — Spec và plan đã duyệt; chọn thực thi Native; tạo nhánh và tài liệu chức năng.
+
+## Review toàn nhánh (2026-11-18)
+Reviewer độc lập (Opus) không thấy Critical. 6 mục Important đã sửa theo TDD (test đỏ → xanh), bộ test 96/96:
+- Khôi phục sao lưu khi lưu tạm (private mode) không còn mất dữ liệu: thêm `refresh()` thay cho reload.
+- Schema sao lưu chặt hơn (edits theo WordShape, giới hạn fontScale/limit/ease) — tệp hỏng không làm sập app.
+- SM-2: "Dễ" ở lần ôn thứ 2 không còn sớm hơn "Được" (8 ngày so với 6).
+- Hàng đợi tính thẻ đến hạn tới hết ngày địa phương (thẻ ôn tối qua hiện vào sáng nay).
+- Phiên ôn không đơ khi lưu lỗi (try/finally + thông báo).
+- Nút "Khôi phục từ tệp" có viền focus khi dùng bàn phím.
+Minor chưa xử lý: focus mất sau mỗi thẻ/không có live region; Space bắt toàn cục; ô số ở Cài đặt lưu mỗi lần gõ; trạng thái cũ giữa nhiều tab; không catch khi mở storage lỗi; chuyển sang bộ nhớ tạm với mọi lỗi open(); service worker (cache không dọn, fallback `/` cho mọi request, `cache.put` thiếu catch); `revokeObjectURL` ngay sau click; hiệu năng buildQueue/exportAll/hsk-words.json 907KB; nháy theme khi tải; lời khen khi 0 thẻ ở người mới.
+Kết quả cuối: vitest 96/96, lint 0 lỗi, build OK, Playwright 25/26 lần đầu (2 test timing: vocab song song, settings.check) — đã sửa spec settings, chạy lại đạt.

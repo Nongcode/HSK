@@ -26,7 +26,12 @@ export function schedule(state: CardState, grade: Grade, now: number): CardState
     intervalDays = Math.max(1, Math.round(state.intervalDays * 1.2));
     ease = Math.max(MIN_EASE, ease - 0.15);
   } else if (grade === "easy") {
-    intervalDays = state.reps === 0 ? 4 : Math.round(state.intervalDays * state.ease * 1.3);
+    intervalDays =
+      state.reps === 0
+        ? 4
+        : state.reps === 1
+          ? 8
+          : Math.round(state.intervalDays * state.ease * 1.3);
     ease += 0.15;
   } else {
     intervalDays =

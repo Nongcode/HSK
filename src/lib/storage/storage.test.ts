@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- hostile-input fixtures */
 import "fake-indexeddb/auto";
 import { describe, expect, it } from "vitest";
 import { DexieStorage } from "./dexie-storage";
@@ -72,6 +73,24 @@ describe.each(impls)("%s", (_name, make) => {
     await s.putCard(card("keep", 100));
     await expect(s.importAll({ version: 99 })).rejects.toThrow();
     await expect(s.importAll("not json")).rejects.toThrow();
+    expect(await s.getCard("keep")).toEqual(card("keep", 100));
+  });
+});
+
+describe.each(impls)("%s backup validation rejects values that would break the app", (_name, make) => {
+  const valid = async () => ({ ...(await make().exportAll()) });
+  it.each([
+    ["fontScale 0", (b: Record<string, any>) => (b.settings.fontScale = 0)],
+    ["sessionLimit 0", (b: Record<string, any>) => (b.settings.sessionLimit = 0)],
+    ["negative ease", (b: Record<string, any>) => b.cards.push({ id: "x", ease: -1, intervalDays: 1, reps: 1, lapses: 0, due: 1 })],
+    ["null meaningEn edit", (b: Record<string, any>) => (b.edits = { a: { meaningEn: null } })],
+    ["numeric hanzi edit", (b: Record<string, any>) => (b.edits = { a: { hanzi: 5 } })],
+  ])("%s", async (_n, mutate) => {
+    const s = make();
+    await s.putCard(card("keep", 100));
+    const b: Record<string, any> = await valid();
+    mutate(b);
+    await expect(s.importAll(b)).rejects.toThrow();
     expect(await s.getCard("keep")).toEqual(card("keep", 100));
   });
 });

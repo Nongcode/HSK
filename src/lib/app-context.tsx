@@ -16,6 +16,8 @@ interface AppState {
   /** Every word of both versions, with edits applied. */
   allWords: Word[];
   saveEdit: (id: string, patch: Partial<Word>) => Promise<void>;
+  /** Re-reads settings and edits from storage, e.g. after restoring a backup. */
+  refresh: () => Promise<void>;
   isEphemeral: boolean;
 }
 
@@ -70,6 +72,12 @@ export function AppProvider({
     [ready],
   );
 
+  const refresh = useCallback(async () => {
+    if (!ready) return;
+    const [settings, backup] = await Promise.all([ready.storage.getSettings(), ready.storage.exportAll()]);
+    setReady({ ...ready, settings, edits: backup.edits });
+  }, [ready]);
+
   const saveEdit = useCallback(
     async (id: string, patch: Partial<Word>) => {
       if (!ready) return;
@@ -90,9 +98,10 @@ export function AppProvider({
       allWords,
       words: wordsFor(allWords, ready.settings.hskVersion),
       saveEdit,
+      refresh,
       isEphemeral: ready.isEphemeral,
     };
-  }, [ready, words, setSettings, saveEdit]);
+  }, [ready, words, setSettings, saveEdit, refresh]);
 
   if (!value) {
     return (

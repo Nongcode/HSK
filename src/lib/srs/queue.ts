@@ -25,7 +25,9 @@ export async function buildQueue(
   opts: QueueOptions,
 ): Promise<Word[]> {
   const byId = new Map(words.map((w) => [w.id, w]));
-  const dueCards = await storage.listDue(now, Number.MAX_SAFE_INTEGER);
+  // "Due today" means due any time before local midnight, so evening reviews show up the next morning.
+  const endOfDay = new Date(now).setHours(23, 59, 59, 999);
+  const dueCards = await storage.listDue(endOfDay, Number.MAX_SAFE_INTEGER);
   const due = dueCards
     .map((c) => byId.get(c.id))
     .filter((w): w is Word => w !== undefined)

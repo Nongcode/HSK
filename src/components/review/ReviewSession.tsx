@@ -23,6 +23,7 @@ export function ReviewSession({ onExit }: { onExit: () => void }) {
   const { storage, words, settings } = useApp();
   const [queue, setQueue] = useState<Word[] | null>(null);
   const [index, setIndex] = useState(0);
+  const [saveError, setSaveError] = useState(false);
   const [flipped, setFlipped] = useState(false);
   const [counts, setCounts] = useState<Record<Grade, number>>({
     again: 0,
@@ -56,22 +57,28 @@ export function ReviewSession({ onExit }: { onExit: () => void }) {
     async (g: Grade) => {
       if (!current || !flipped || busy.current) return;
       busy.current = true;
-      const now = Date.now();
+      try {
+        const now = Date.now();
       const before = (await storage.getCard(current.id)) ?? newCard(current.id, now);
-      const after = schedule(before, g, now);
-      await storage.putCard(after);
-      await storage.addReview({
-        cardId: current.id,
-        grade: g,
-        at: now,
-        prevIntervalDays: before.intervalDays,
-        nextIntervalDays: after.intervalDays,
-      });
-      setCounts((c) => ({ ...c, [g]: c[g] + 1 }));
-      if (g === "again") setQueue((q) => (q ? [...q, current] : q));
-      setIndex((i) => i + 1);
-      setFlipped(false);
-      busy.current = false;
+        const after = schedule(before, g, now);
+        await storage.putCard(after);
+        await storage.addReview({
+          cardId: current.id,
+          grade: g,
+          at: now,
+          prevIntervalDays: before.intervalDays,
+          nextIntervalDays: after.intervalDays,
+        });
+        setCounts((c) => ({ ...c, [g]: c[g] + 1 }));
+        if (g === "again") setQueue((q) => (q ? [...q, current] : q));
+        setIndex((i) => i + 1);
+        setFlipped(false);
+        setSaveError(false);
+      } catch {
+        setSaveError(true);
+      } finally {
+        busy.current = false;
+      }
     },
     [current, flipped, storage],
   );
@@ -116,6 +123,11 @@ export function ReviewSession({ onExit }: { onExit: () => void }) {
       {current ? (
         <div className="space-y-4">
           <Flashcard word={current} flipped={flipped} onFlip={() => setFlipped(true)} />
+          {saveError && (
+            <p role="alert" className="text-center text-warn">
+              Không lưu được kết quả. Hãy thử chấm lại.
+            </p>
+          )}
           {flipped && (
             <div className="grid grid-cols-4 gap-2" role="group" aria-label="Chấm mức nhớ">
               {BUTTONS.map((b) => (

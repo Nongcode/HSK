@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { WordShape } from "@/lib/content/schema";
 import type { BackupV1 } from "./types";
 
 const grade = z.enum(["again", "hard", "good", "easy"]);
@@ -9,10 +10,10 @@ const BackupSchema = z.object({
   cards: z.array(
     z.object({
       id: z.string(),
-      ease: z.number(),
-      intervalDays: z.number(),
-      reps: z.number(),
-      lapses: z.number(),
+      ease: z.number().min(1.3).max(10),
+      intervalDays: z.number().min(0),
+      reps: z.number().int().min(0),
+      lapses: z.number().int().min(0),
       due: z.number(),
     }),
   ),
@@ -27,13 +28,13 @@ const BackupSchema = z.object({
   ),
   settings: z.object({
     hskVersion: z.enum(["2.0", "3.0"]),
-    dailyNewLimit: z.number(),
-    sessionLimit: z.number(),
+    dailyNewLimit: z.number().int().min(0).max(1000),
+    sessionLimit: z.number().int().min(1).max(1000),
     theme: z.enum(["light", "dark", "system"]),
-    fontScale: z.number(),
+    fontScale: z.number().min(0.5).max(2),
     lastBackupAt: z.number().nullable(),
   }),
-  edits: z.record(z.string(), z.record(z.string(), z.unknown())),
+  edits: z.record(z.string(), WordShape.partial().omit({ id: true })),
 });
 
 /** Throws a readable error when `raw` is not a valid version-1 backup. */

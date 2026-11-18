@@ -2,7 +2,8 @@ import { expect, test } from "@playwright/test";
 
 test("đổi chuẩn HSK, đổi chủ đề và báo lỗi khi khôi phục tệp sai", async ({ page }, info) => {
   await page.goto("/settings");
-  await page.getByLabel("HSK 3.0").check();
+  await page.getByLabel("HSK 3.0").click();
+  await expect(page.getByLabel("HSK 3.0")).toBeChecked();
   await page.getByLabel("Chủ đề").selectOption("dark");
   await expect(page.locator("html")).toHaveClass(/dark/);
 
