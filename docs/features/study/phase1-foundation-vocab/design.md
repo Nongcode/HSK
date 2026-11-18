@@ -10,3 +10,4 @@ Thiết kế đã chốt nằm ở spec (mục 3, 4, 9). Mục này ghi vị tr�
 | 3 | `scripts/lib/merge.ts` (`mergeWord`, `inScope`), `scripts/build-vocab.ts`, `scripts/validate-content.ts`, `src/content/vocab/hsk-words.json` (3317 từ, 3293 có nghĩa Việt) |
 | 4 | `src/lib/storage/{types,backup-schema,memory-storage,dexie-storage,index}.ts` — `Storage`, `getStorage()` |
 | 5 | `src/lib/srs/sm2.ts` — `newCard`, `schedule` |
+| 6 | `src/lib/vocab/index.ts` (`wordsFor`, `applyEdit`), `src/lib/app-context.tsx` (`AppProvider`, `useApp`: words/allWords/settings/saveEdit/isEphemeral) |

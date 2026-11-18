@@ -9,8 +9,8 @@
 | Trạng thái | 🟡 IN_PROGRESS |
 | Yêu cầu đang làm | CR-001 — Nền tảng, từ vựng, flashcard SRS |
 | Bước Superpowers | executing-plans (inline) |
-| Task đang làm | T-001.6 |
-| **Bước tiếp theo** | Task 6: vocab/index.ts (wordsFor, applyEdit) + app-context.tsx |
+| Task đang làm | T-001.7 |
+| **Bước tiếp theo** | Task 7: AppShell, FocusLayout, EphemeralBanner, ThemeToggle + test |
 | Branch | feat/phase1-foundation |
 | Cập nhật lần cuối | 2026-11-18 |
 | Ghi chú dở dang | Không |
@@ -31,7 +31,7 @@
 | T-001.3 | Script dựng từ vựng | ✅ DONE | vitest merge 8/8; npm run validate 3317 từ; Bỏ qua Playwright: script dữ liệu | |
 | T-001.4 | Storage + Dexie | ✅ DONE | vitest storage 11/11 (Memory+Dexie); Bỏ qua Playwright: lớp dữ liệu | |
 | T-001.5 | SM-2 | ✅ DONE | vitest sm2 6/6; Bỏ qua Playwright: hàm thuần | |
-| T-001.6 | Nạp từ vựng + AppContext | ⬜ TODO | | |
+| T-001.6 | Nạp từ vựng + AppContext | ✅ DONE | vitest 6/6 + tsc; Bỏ qua Playwright: chưa có UI | |
 | T-001.7 | AppShell + FocusLayout | ⬜ TODO | | |
 | T-001.8 | Thư viện từ vựng | ⬜ TODO | | |
 | T-001.9 | Phiên flashcard | ⬜ TODO | | |
